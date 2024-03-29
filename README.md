@@ -1,1 +1,1 @@
-# MindWay-v2-iOS
+# MindWay-v2-iOS ✨
