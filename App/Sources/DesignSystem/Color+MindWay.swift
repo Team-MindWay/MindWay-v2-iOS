@@ -1,4 +1,4 @@
-import UIKit
+import SwiftUI
 
 public extension UIColor {
     enum MindWayColorSystem {
@@ -9,7 +9,7 @@ public extension UIColor {
         case system(System)
     }
 
-    static func mindway(_ style: MindWayColorSystem) -> UIColor {
+    static func mindway(_ style: MindWayColorSystem) -> Color {
         switch style {
         case let .main(colorable as MindWayColorable),
             let .black(colorable as MindWayColorable),
