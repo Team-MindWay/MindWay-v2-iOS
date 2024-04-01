@@ -1,12 +1,12 @@
 import SwiftUI
 
-public extension UIColor.MindWayColorSystem {
+public extension Color.MindWayColorSystem {
     enum Main: MindWayColorable {
         case main
     }
 }
 
-public extension UIColor.MindWayColorSystem.Main {
+public extension Color.MindWayColorSystem.Main {
     var color: Color {
         switch self {
         case .main: return MindWayAsset.Main.main.swiftUIColor
