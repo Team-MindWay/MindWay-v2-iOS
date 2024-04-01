@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension UIColor {
+public extension Color {
     enum MindWayColorSystem {
         case main(Main)
         case black(Black)
