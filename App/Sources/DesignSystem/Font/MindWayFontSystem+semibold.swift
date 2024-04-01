@@ -1,8 +1,8 @@
 import SwiftUI
 
 public extension View {
-    func mindWayFont(
-        _ style: Font.MindWayFontSystem,
+    func mindWaySemiboldFont(
+        _ style: Font.MindWaySemiboldFontSystem,
         color: Color.MindWayColorSystem,
         weight: Font.Weight
     ) -> some View {
@@ -11,8 +11,8 @@ public extension View {
             .foregroundColor(.mindway(color))
     }
 
-    func mindWayFont(
-        _ style: Font.MindWayFontSystem
+    func mindWaySemiboldFont(
+        _ style: Font.MindWaySemiboldFontSystem
     ) -> some View {
         self
             .font(.mindWay(style))
@@ -20,7 +20,7 @@ public extension View {
 }
 
 public extension Font {
-    enum MindWayFontSystem: MindWayFontable {
+    enum MindWaySemiboldFontSystem: MindWayFontable {
         case h1
         case h2
         case h3
@@ -30,12 +30,12 @@ public extension Font {
         case label
     }
 
-    static func mindWay(_ style: MindWayFontSystem) -> Font {
+    static func mindWay(_ style: MindWaySemiboldFontSystem) -> Font {
         return style.font
     }
 }
 
-public extension Font.MindWayFontSystem {
+public extension Font.MindWaySemiboldFontSystem {
     var font: Font {
         switch self {
         case .h1: return Font(MindWayFontFamily.PretendardVariable.semiBold.font(size: 31))
