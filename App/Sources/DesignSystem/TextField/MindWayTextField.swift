@@ -36,19 +36,21 @@ struct MindWayTextField: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
+                .mindWayRegularFont(.label)
+                .foregroundColor(.mindway(.gray(.g4)))
             
             TextField(placeholder, text: $text)
+                .padding(.horizontal, 16)
                 .frame(height: 56)
-                .background(borderColor)
                 .cornerRadius(8)
                 .onSubmit(onSubmit)
                 .focused($isFocused)
                 .foregroundColor(.mindway(.black(.black)))
-                .mindWayRegularFont(.label)
-                .padding(.horizontal, 16)
+                .background(borderColor)
+                .mindWayRegularFont(.m3)
                 .overlay {
                     RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder()
+                        .strokeBorder(borderColor)
                 }
                 .onTapGesture {
                     isFocused = true
