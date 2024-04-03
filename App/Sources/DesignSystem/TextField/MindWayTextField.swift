@@ -44,6 +44,7 @@ struct MindWayTextField: View {
                 .onSubmit(onSubmit)
                 .focused($isFocused)
                 .foregroundColor(.mindway(.black(.black)))
+                .mindWayRegularFont(.label)
                 .padding(.horizontal, 16)
                 .overlay {
                     RoundedRectangle(cornerRadius: 8)
