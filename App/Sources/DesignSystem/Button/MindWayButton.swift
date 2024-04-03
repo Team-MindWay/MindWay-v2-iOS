@@ -1,19 +1,31 @@
-//
-//  MindWayButton.swift
-//  MindWay
-//
-//  Created by Mac on 4/3/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import SwiftUI
 
-struct MindWayButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+public struct MindWayButton: View {
+    var text: String = ""
+    var buttonStyle: ButtonStyleType
+    var action: ()  -> Void
+    
+    public init(
+        text: String,
+        buttonStyle: ButtonStyleType,
+        action: @escaping () -> Void = {}
+    ) {
+        self.text = text
+        self.buttonStyle = buttonStyle
+        self.action = action
     }
-}
-
-#Preview {
-    MindWayButton()
+    
+    public var body: some View {
+        HStack {
+            Spacer()
+            
+            Text(text)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 10)
+            
+            Spacer()
+        }
+        .buttonWrapper(action)
+        .buttonStyle(MindWayButtonStyle(style: buttonStyle))
+    }
 }
