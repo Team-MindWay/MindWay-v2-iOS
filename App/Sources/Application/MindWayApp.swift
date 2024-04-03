@@ -8,7 +8,7 @@ struct MindWayApp: App {
     var body: some Scene {
         WindowGroup {
             if showMainView {
-                SwiftUIView()
+                EmptyView()
             } else {
                 SplashView()
                     .onAppear {
