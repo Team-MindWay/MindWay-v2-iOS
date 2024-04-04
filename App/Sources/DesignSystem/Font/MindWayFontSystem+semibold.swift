@@ -28,6 +28,7 @@ public extension Font {
         case m2
         case m3
         case label
+        case label2
     }
 
     static func mindWay(_ style: MindWaySemiboldFontSystem) -> Font {
@@ -45,6 +46,7 @@ public extension Font.MindWaySemiboldFontSystem {
         case .m2: return Font(MindWayFontFamily.PretendardVariable.semiBold.font(size: 18))
         case .m3: return Font(MindWayFontFamily.PretendardVariable.semiBold.font(size: 16))
         case .label: return Font(MindWayFontFamily.PretendardVariable.semiBold.font(size: 14))
+        case .label2: return Font(MindWayFontFamily.PretendardVariable.semiBold.font(size: 12))
         }
     }
 }
