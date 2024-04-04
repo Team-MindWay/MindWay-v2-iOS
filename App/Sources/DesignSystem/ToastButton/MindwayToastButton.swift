@@ -22,13 +22,14 @@ public struct MindwayToastButton: View {
                 .frame(height: 60)
                 .shadow(color: .black.opacity(0.12), radius: 10, x: 0, y: 0)
                 .padding(.horizontal, 24)
+                
             
             HStack(spacing: 0) {
                 Image(applicationStatus ? "MindWayCheckGreen" : "MindWayCheckRed")
                     .padding(.trailing, 8)
                 
                 Text(text)
-                    .font(.system(size: 16))
+                    .mindWayRegularFont(.m3)
                 
                 Spacer()
             }
