@@ -4,6 +4,7 @@ public struct MindwayToastButton: View {
     var text: String
     @Binding var popupStatus: Bool
     @Binding var applicationStatus: Bool
+    
     public init(
         text: String,
         popupStatus: Binding<Bool>,
@@ -21,11 +22,11 @@ public struct MindwayToastButton: View {
                 .frame(height: 60)
                 .shadow(color: .black.opacity(0.12), radius: 10, x: 0, y: 0)
                 .padding(.horizontal, 24)
-                .mindWayRegularFont(.m3)
             
             HStack(spacing: 0) {
                 Image(applicationStatus ? "MindWayCheckGreen" : "MindWayCheckRed")
                     .padding(.trailing, 8)
+                
                 Text(text)
                     .font(.system(size: 16))
                 
