@@ -23,7 +23,6 @@ public extension MindWayButtonStyle {
         
         var foregroundColor: Color {
             configuration.isPressed ? Color.mindway(.white(.white)) : Color.mindway(.white(.white))
-            
         }
             
         var backgroundColor: Color {

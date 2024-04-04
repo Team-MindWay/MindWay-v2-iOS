@@ -12,9 +12,9 @@ struct LoginView: View {
                 HStack(spacing: 8) {
                     Spacer()
                     
-                    Image("GAuthLogo")
+                    MindWayAsset.Images.gAuthLogo.swiftUIImage
                     
-                    Image("SignIn")
+                    MindWayAsset.Images.signIn.swiftUIImage
                     
                     Spacer()
                 }
