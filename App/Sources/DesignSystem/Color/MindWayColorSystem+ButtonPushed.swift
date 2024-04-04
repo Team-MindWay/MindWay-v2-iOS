@@ -9,7 +9,7 @@ public extension Color.MindWayColorSystem {
 public extension Color.MindWayColorSystem.ButtonPushed {
     var color: Color {
         switch self {
-        case .buttonPushed: return MindWayAsset.ButtonPushed.buttonPushed.swiftUIColor
+        case .buttonPushed: return MindWayAsset.ButtonPushed.buttonpushed.swiftUIColor
         }
     }
 }
