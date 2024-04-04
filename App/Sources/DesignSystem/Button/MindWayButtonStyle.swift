@@ -8,10 +8,10 @@ public extension MindWayButton {
 
 public struct MindWayButtonStyle: ButtonStyle {
     var style: MindWayButton.ButtonStyleType
-    
+
     public func makeBody(configuration: Configuration) -> some View {
         switch style {
-        case .default:
+        case .`default`:
             DefaultButton(configuration: configuration)
         }
     }
@@ -23,10 +23,11 @@ public extension MindWayButtonStyle {
         
         var foregroundColor: Color {
             configuration.isPressed ? Color.mindway(.white(.white)) : Color.mindway(.white(.white))
+            
         }
-        
+            
         var backgroundColor: Color {
-            configuration.isPressed ? Color.mindway(.main(.main)) : Color.mindway(.main(.main))
+            configuration.isPressed ? Color.mindway(.buttonPushed(.buttonPushed)) : Color.mindway(.main(.main))
         }
         
         public var body: some View {
