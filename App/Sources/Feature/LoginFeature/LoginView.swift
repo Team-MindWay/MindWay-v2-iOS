@@ -3,7 +3,7 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         VStack {
-            Image("MindWay")
+            MindWayAsset.Images.mindWay.swiftUIImage
                 .padding(.bottom, 334)
             
             Button {
