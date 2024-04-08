@@ -86,7 +86,7 @@ struct MindWayBottomSheet<T: View>: ViewModifier {
 public extension View {
     func mindWayBottomSheet<Content: View>(
         isShowing: Binding<Bool>,
-        cornerRadius: CGFloat = 8,
+        cornerRadius: CGFloat = 12,
         topPadding: CGFloat = .zero,
         content: @escaping () -> Content
     ) -> some View {
