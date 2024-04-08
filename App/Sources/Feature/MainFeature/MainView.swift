@@ -7,7 +7,7 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                MindWayAsset.Icons.mindwayLogo.swiftUIImage
+                MindWayAsset.Icons.mindWayLogo.swiftUIImage
                     .padding(.leading, 24)
                 
                 Spacer()
