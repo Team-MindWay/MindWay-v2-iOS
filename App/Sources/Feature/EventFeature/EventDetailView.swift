@@ -1,11 +1,3 @@
-//
-//  EventDetailView.swift
-//  MindWay
-//
-//  Created by 서지완 on 4/6/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import SwiftUI
 
 struct EventDetailView: View {
@@ -15,6 +7,7 @@ struct EventDetailView: View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
                 Button {
+                    #warning("dismiss 또는 전 뷰로 돌아가게하는 기능 추가예정")
                 }label: {
                     MindWayAsset.Icons.chevronLeft.swiftUIImage
                 }
