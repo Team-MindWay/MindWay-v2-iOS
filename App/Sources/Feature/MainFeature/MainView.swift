@@ -36,39 +36,10 @@ struct MainView: View {
                     }
                     .padding(.horizontal, 48)
                     
-//                    HStack(spacing: 4) {
-//                        WeeklyBookCountGraph()
-//                            .padding(.trailing, 48)
-//                        
-//                        Text("9")
-//                            .mindWaySemiboldFont(.m1)
-//                        
-//                        Text("/")
-//                            .mindWayRegularFont(.m1)
-//                            .foregroundColor(.mindway(.gray(.g3)))
-//                        
-//                        Text("30")
-//                            .mindWayRegularFont(.m3)
-//                            .foregroundColor(.mindway(.main(.main)))
-//                    }
-//                    .padding(.horizontal, 48)
-//                    
-//                    VStack {
-//                        HStack(spacing: 26) {
-//                            ForEach(bookCount, id: \.self) { count in
-//                                DailyBookCountGraph(count: count)
-//                            }
-//                        }
-//                        
-//                        HStack(spacing: 30) {
-//                            ForEach(week, id: \.self) { week in
-//                                Text(week)
-//                                    .foregroundColor(.mindway(.gray(.g8)))
-//                                    .mindWayRegularFont(.label)
-//                            }
-//                        }
-//                    }
-                    goalReadingGraph()
+                    GoalReadingGraph(
+                        bookCount: bookCount,
+                        week: week
+                    )
                 }
             }
             
@@ -122,32 +93,6 @@ struct MainView: View {
             }
     }
     
-//    @ViewBuilder
-//    func WeeklyBookCountGraph() -> some View {
-//        ZStack(alignment: .leading) {
-//            RoundedRectangle(cornerRadius: 30)
-//                .frame(height: 10)
-//                .foregroundColor(.mindway(.gray(.g2)))
-//            
-//            RoundedRectangle(cornerRadius: 30)
-//                .frame(width: 100, height: 10)
-//                .foregroundColor(.mindway(.main(.main)))
-//        }
-//    }
-    
-//    @ViewBuilder
-//    func DailyBookCountGraph(count: Int) -> some View {
-//        VStack {
-//            Text("\(count)")
-//                .mindWayRegularFont(.label)
-//                .foregroundColor(.mindway(.gray(.g8)))
-//            
-//            RoundedRectangle(cornerRadius: 4)
-//                .frame(width: 16, height: CGFloat(count+1)*CGFloat((count+1)))
-//                .foregroundColor(.mindway(.main(.main)))
-//        }
-//    }
-    
     @ViewBuilder
     func MonthlyBookworm(count: Int) -> some View {
         VStack(spacing: 8) {
@@ -164,60 +109,4 @@ struct MainView: View {
                 .mindWaySemiboldFont(.m3)
         }
     }
-    
-    @ViewBuilder
-    func goalReadingGraph() -> some View {
-        HStack(spacing: 4) {
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 30)
-                    .frame(height: 10)
-                    .foregroundColor(.mindway(.gray(.g2)))
-                
-                RoundedRectangle(cornerRadius: 30)
-                    .frame(width: 100, height: 10)
-                    .foregroundColor(.mindway(.main(.main)))
-            }
-                .padding(.trailing, 48)
-            
-            Text("9")
-                .mindWaySemiboldFont(.m1)
-            
-            Text("/")
-                .mindWayRegularFont(.m1)
-                .foregroundColor(.mindway(.gray(.g3)))
-            
-            Text("30")
-                .mindWayRegularFont(.m3)
-                .foregroundColor(.mindway(.main(.main)))
-        }
-        .padding(.horizontal, 48)
-        
-        VStack {
-            HStack(spacing: 26) {
-                ForEach(bookCount, id: \.self) { count in
-                    VStack {
-                        Text("\(count)")
-                            .mindWayRegularFont(.label)
-                            .foregroundColor(.mindway(.gray(.g8)))
-                        
-                        RoundedRectangle(cornerRadius: 4)
-                            .frame(width: 16, height: CGFloat(count+1)*CGFloat((count+1)))
-                            .foregroundColor(.mindway(.main(.main)))
-                    }
-                }
-            }
-            
-            HStack(spacing: 30) {
-                ForEach(week, id: \.self) { week in
-                    Text(week)
-                        .foregroundColor(.mindway(.gray(.g8)))
-                        .mindWayRegularFont(.label)
-                }
-            }
-        }
-    }
-}
-
-#Preview {
-    MainView()
 }
