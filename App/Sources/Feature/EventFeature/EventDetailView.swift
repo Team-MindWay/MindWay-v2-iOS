@@ -8,7 +8,7 @@ struct EventDetailView: View {
             HStack(spacing: 0) {
                 Button {
                     #warning("dismiss 또는 전 뷰로 돌아가게하는 기능 추가예정")
-                }label: {
+                } label: {
                     MindWayAsset.Icons.chevronLeft.swiftUIImage
                 }
                 
@@ -29,7 +29,6 @@ struct EventDetailView: View {
                 
             Text(viewmodel.eventTitle)
                 .mindWaySemiboldFont(.m1)
-                .frame(height: 24)
                 .padding(.top, 20)
             
             Text(viewmodel.eventDescription)

@@ -1,19 +1,18 @@
 import SwiftUI
 
 struct EventTopBarView: View {
-    @State private var isTrailing = false
+    @State private var topNavigationState = false
     @StateObject private var viewmodel = EventViewModel()
-    @State private var navigationTest = false
     var body: some View {
         NavigationView {
-            VStack(alignment: isTrailing ? .trailing : .leading, spacing: 0) {
+            VStack(alignment: topNavigationState ? .trailing : .leading, spacing: 0) {
                 HStack(spacing: 0){
                     Button {
-                        isTrailing = false
+                        topNavigationState = false
                     } label: {
                         Text("진행 중인 이벤트")
                             .mindWaySemiboldFont(.m3)
-                            .foregroundColor(isTrailing ? .mindway(.gray(.g3)) : .black)
+                            .foregroundColor(topNavigationState ? .mindway(.gray(.g3)) : .black)
                             .padding(.leading, 45)
                             .padding(.bottom, 12)
                     }
@@ -21,11 +20,11 @@ struct EventTopBarView: View {
                     Spacer()
                     
                     Button {
-                        isTrailing = true
+                        topNavigationState = true
                     } label: {
                         Text("지난 이벤트")
                             .mindWaySemiboldFont(.m3)
-                            .foregroundColor(isTrailing ? .black : .mindway(.gray(.g3)))
+                            .foregroundColor(topNavigationState ? .black : .mindway(.gray(.g3)))
                             .padding(.trailing, 61)
                             .padding(.bottom, 12)
                     }
@@ -35,14 +34,14 @@ struct EventTopBarView: View {
                 Rectangle()
                     .foregroundColor(.mindway(.main(.main)))
                     .frame(width: 192, height: 2)
-                    .animation(.easeInOut(duration: 0.2), value: isTrailing)
+                    .animation(.easeInOut(duration: 0.2), value: topNavigationState)
                     .background(
                         Rectangle()
                             .frame(width: 1000, height: 2)
                             .foregroundStyle(.gray)
                     )
                 
-                TabView(selection: $isTrailing) {
+                TabView(selection: $topNavigationState) {
                     ScrollView(showsIndicators: false) {
                         ForEach(1...5, id: \.self) { _ in
                             detailView(eventTitle: viewmodel.eventTitle, eventDescription: viewmodel.eventDescription, eventTime: viewmodel.eventTime)
@@ -57,7 +56,8 @@ struct EventTopBarView: View {
                 
                 Spacer()
             }
-        }.navigationBarBackButtonHidden(true)
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -79,10 +79,11 @@ func detailView(eventTitle: String, eventDescription: String, eventTime: String)
                         .frame(width: 270, height: 24, alignment: .leading)
                     Button {
                         
-                    }label: {
+                    } label: {
                         MindWayAsset.Icons.chevronRight.swiftUIImage
                     }
-                }.padding(.top, 20)
+                }
+                .padding(.top, 20)
                 
                 Text(eventDescription)
                     .mindWayRegularFont(.m3)
@@ -121,9 +122,4 @@ func noneEvent() -> some View {
             .foregroundStyle(.gray)
         Spacer()
     }
-}
-
-
-#Preview {
-    EventTopBarView()
 }
