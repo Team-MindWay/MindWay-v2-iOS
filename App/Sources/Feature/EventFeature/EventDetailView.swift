@@ -43,7 +43,7 @@ struct EventDetailView: View {
                 .mindWayRegularFont(.label)
                 .frame(height: 22)
                 .padding(.top, 14)
-                .foregroundStyle(.gray)
+                .foregroundColor(.mindway(.gray(.g4)))
             
             Spacer()
         }
