@@ -119,7 +119,7 @@ func noneEvent() -> some View {
             .frame(height: 27)
             .mindWayRegularFont(.m2)
             .padding(.top, 9)
-            .foregroundStyle(.gray)
+            .foregroundColor(.mindway(.gray(.g5)))
         Spacer()
     }
 }
