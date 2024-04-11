@@ -26,7 +26,7 @@ public extension MindWayButtonStyle {
         }
             
         var backgroundColor: Color {
-            configuration.isPressed ? Color.mindway(.buttonpushed(.buttonpushed)) : Color.mindway(.main(.main))
+            configuration.isPressed ? Color.mindway(.main(.buttonpushed)) : Color.mindway(.main(.main))
         }
         
         public var body: some View {
