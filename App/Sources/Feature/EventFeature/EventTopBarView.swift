@@ -67,7 +67,7 @@ func detailView(eventTitle: String, eventDescription: String, eventTime: String)
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .frame(height: 176)
-                .foregroundStyle(.white)
+               .foregroundColor(.mindway(.white(.white)))
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
                 .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
