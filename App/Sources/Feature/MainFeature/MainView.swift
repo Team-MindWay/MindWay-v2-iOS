@@ -35,6 +35,7 @@ struct MainView: View {
                             .foregroundColor(.mindway(.gray(.g4)))
                     }
                     .padding(.horizontal, 48)
+                    .padding(.top, 6)
                     
                     GoalReadingGraph(
                         bookCount: bookCount,
@@ -109,4 +110,8 @@ struct MainView: View {
                 .mindWaySemiboldFont(.m3)
         }
     }
+}
+
+#Preview {
+    MainView()
 }
