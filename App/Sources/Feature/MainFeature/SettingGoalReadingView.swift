@@ -1,11 +1,3 @@
-//
-//  SettingGoalReadingView.swift
-//  MindWay
-//
-//  Created by 이승화 on 4/9/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import SwiftUI
 
 struct SettingGoalReadingView: View {
