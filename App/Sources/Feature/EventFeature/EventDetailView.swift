@@ -3,6 +3,7 @@ import SwiftUI
 struct EventDetailView: View {
     @StateObject private var viewmodel = EventViewModel()
     @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
@@ -50,8 +51,4 @@ struct EventDetailView: View {
         .padding(.top, 20)
         .navigationBarBackButtonHidden()
     }
-}
-
-#Preview {
-    EventDetailView()
 }

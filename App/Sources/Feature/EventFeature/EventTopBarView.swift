@@ -3,6 +3,7 @@ import SwiftUI
 struct EventTopBarView: View {
     @State private var topNavigationState = false
     @StateObject private var viewmodel = EventViewModel()
+    
     var body: some View {
         NavigationView {
             VStack(alignment: topNavigationState ? .trailing : .leading, spacing: 0) {
@@ -44,7 +45,11 @@ struct EventTopBarView: View {
                 TabView(selection: $topNavigationState) {
                     ScrollView(showsIndicators: false) {
                         ForEach(1...5, id: \.self) { _ in
-                            detailView(eventTitle: viewmodel.eventTitle, eventDescription: viewmodel.eventDescription, eventTime: viewmodel.eventTime)
+                            detailView(
+                                eventTitle: viewmodel.eventTitle,
+                                eventDescription: viewmodel.eventDescription,
+                                eventTime: viewmodel.eventTime
+                            )
                         }
                     }
                     .tag(false)
@@ -62,12 +67,16 @@ struct EventTopBarView: View {
 }
 
 @ViewBuilder
-func detailView(eventTitle: String, eventDescription: String, eventTime: String) -> some View {
+func detailView(
+    eventTitle: String,
+    eventDescription: String,
+    eventTime: String
+) -> some View {
     VStack(alignment: .leading, spacing: 0) {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .frame(height: 176)
-                .foregroundStyle(.white)
+                .foregroundColor(.mindway(.white(.white)))
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
                 .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
@@ -77,6 +86,7 @@ func detailView(eventTitle: String, eventDescription: String, eventTime: String)
                     Text(eventTitle)
                         .mindWaySemiboldFont(.m3)
                         .frame(width: 270, height: 24, alignment: .leading)
+                    
                     Button {
                         
                     } label: {
@@ -120,6 +130,7 @@ func noneEvent() -> some View {
             .mindWayRegularFont(.m2)
             .padding(.top, 9)
             .foregroundColor(.mindway(.gray(.g5)))
+        
         Spacer()
     }
 }

@@ -1,5 +1,4 @@
 import SwiftUI
-import Foundation
 
 class EventViewModel: ObservableObject {
     @Published var eventTitle: String = "가을 독서 행사"
