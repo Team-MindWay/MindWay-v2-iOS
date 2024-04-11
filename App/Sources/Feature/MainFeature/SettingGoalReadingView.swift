@@ -74,7 +74,3 @@ struct SettingGoalReadingView: View {
         }
     }
 }
-
-#Preview {
-    SettingGoalReadingView()
-}
