@@ -39,9 +39,10 @@ struct GoalReadingGraph: View {
                                 .mindWayRegularFont(.label)
                                 .foregroundColor(.mindway(.gray(.g8)))
                             
-                            RoundedRectangle(cornerRadius: 4)
+                            Rectangle()
                                 .frame(width: 16, height: CGFloat(count+1)*CGFloat(count+1))
                                 .foregroundColor(.mindway(.main(.main)))
+                                .cornerRadius(4, corners: [.topRight, .topLeft])
                         }
                     }
                 }
