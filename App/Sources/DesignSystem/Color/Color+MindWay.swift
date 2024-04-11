@@ -7,7 +7,6 @@ public extension Color {
         case white(White)
         case gray(Gray)
         case system(System)
-        case buttonPushed(ButtonPushed)
     }
 
     static func mindway(_ style: MindWayColorSystem) -> Color {
@@ -16,8 +15,7 @@ public extension Color {
             let .black(colorable as MindWayColorable),
             let .white(colorable as MindWayColorable),
             let .gray(colorable as MindWayColorable),
-            let .system(colorable as MindWayColorable),
-            let .buttonPushed(colorable as MindWayColorable):
+            let .system(colorable as MindWayColorable):
             return colorable.color
         }
     }
