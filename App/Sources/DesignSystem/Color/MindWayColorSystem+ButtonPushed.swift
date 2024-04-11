@@ -2,14 +2,14 @@ import SwiftUI
 
 public extension Color.MindWayColorSystem {
     enum ButtonPushed: MindWayColorable {
-        case buttonPushed
+        case buttonpushed
     }
 }
 
 public extension Color.MindWayColorSystem.ButtonPushed {
     var color: Color {
         switch self {
-        case .buttonPushed: return MindWayAsset.ButtonPushed.buttonPushed.swiftUIColor
+        case .buttonpushed: return MindWayAsset.ButtonPushed.buttonpushed.swiftUIColor
         }
     }
 }
