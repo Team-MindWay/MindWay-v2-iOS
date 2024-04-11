@@ -32,7 +32,7 @@ struct GoalReadingGraph: View {
             .padding(.horizontal, 48)
             
             VStack {
-                HStack(spacing: 26) {
+                HStack(alignment: .bottom, spacing: 26) {
                     ForEach(bookCount, id: \.self) { count in
                         VStack {
                             Text("\(count)")
