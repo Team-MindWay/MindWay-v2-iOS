@@ -47,9 +47,9 @@ struct GoalReadingView: View {
                 }
             }
         }
-        .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
-            //
-        }
+//        .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
+//            
+//        }
     }
     
     @ViewBuilder
