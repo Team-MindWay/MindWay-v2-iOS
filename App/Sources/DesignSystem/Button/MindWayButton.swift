@@ -22,7 +22,7 @@ public struct MindWayButton: View {
             
             Text(text)
                 .padding(.horizontal, 10)
-                .padding(.vertical, 10)
+                .padding(.vertical, 16)
             
             Spacer()
         }
