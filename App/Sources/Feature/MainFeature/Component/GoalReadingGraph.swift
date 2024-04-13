@@ -59,8 +59,3 @@ struct GoalReadingGraph: View {
         }
     }
 }
-
-
-#Preview {
-    SettingGoalReadingView()
-}

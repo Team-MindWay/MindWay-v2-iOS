@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingGoalReadingView: View {
-    @State var book = ""
+    @StateObject var viewModel: GoalReadingViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("기간")
@@ -24,7 +24,7 @@ struct SettingGoalReadingView: View {
                 .padding(.top, 20)
             
             GoalReadingSettingTextField(
-                text: $book,
+                text: $viewModel.bookCount,
                 title: ""
             )
             
@@ -38,6 +38,6 @@ struct SettingGoalReadingView: View {
     }
 }
 
-#Preview {
-    SettingGoalReadingView()
-}
+//#Preview {
+//    SettingGoalReadingView(viewModel: GoalReadingViewModel())
+//}
