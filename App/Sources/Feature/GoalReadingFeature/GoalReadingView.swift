@@ -40,16 +40,16 @@ struct GoalReadingView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
-                        // Action
+                        isShowingSettingPage = true
                     } label: {
                         MindWayAsset.Icons.addBlack.swiftUIImage
                     }
                 }
             }
         }
-//        .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
-//            
-//        }
+        .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
+            SettingGoalReadingView(viewModel: GoalReadingViewModel())
+        }
     }
     
     @ViewBuilder
