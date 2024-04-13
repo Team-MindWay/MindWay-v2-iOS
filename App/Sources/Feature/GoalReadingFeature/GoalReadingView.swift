@@ -17,7 +17,10 @@ struct GoalReadingView: View {
                         .padding(.horizontal, 24)
                         .padding(.top, 20)
                     
-                    GoalReadingGraph(bookCount: bookCount, week: week)
+                    GoalReadingGraph(
+                        bookCount: bookCount,
+                        week: week
+                    )
                 }
                 
                 ZStack {
