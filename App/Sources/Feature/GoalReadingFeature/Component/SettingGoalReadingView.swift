@@ -18,15 +18,11 @@ struct SettingGoalReadingView: View {
             .mindWaySemiboldFont(.m2)
             .padding(.top, 4)
             
-            Text("목표 독서량")
-                .mindWayRegularFont(.label)
-                .foregroundColor(.mindway(.gray(.g4)))
-                .padding(.top, 20)
-            
             GoalReadingSettingTextField(
                 text: $viewModel.bookCount,
-                title: ""
+                title: "목표 독서량"
             )
+            .padding(.top, 20)
             
             MindWayButton(
                 text: "확인",
@@ -38,6 +34,6 @@ struct SettingGoalReadingView: View {
     }
 }
 
-//#Preview {
-//    SettingGoalReadingView(viewModel: GoalReadingViewModel())
-//}
+#Preview {
+    SettingGoalReadingView(viewModel: GoalReadingViewModel())
+}

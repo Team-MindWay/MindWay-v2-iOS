@@ -47,7 +47,7 @@ struct GoalReadingSettingTextField: View {
                 .foregroundColor(.mindway(.black(.black)))
                 .background(borderColor)
                 .cornerRadius(8)
-                .mindWayRegularFont(.m3)
+                .mindWaySemiboldFont(.m2)
                 .overlay {
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(borderColor)
