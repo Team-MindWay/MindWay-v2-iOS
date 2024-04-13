@@ -33,7 +33,3 @@ struct SettingGoalReadingView: View {
         .padding(.horizontal, 24)
     }
 }
-
-#Preview {
-    SettingGoalReadingView(viewModel: GoalReadingViewModel())
-}
