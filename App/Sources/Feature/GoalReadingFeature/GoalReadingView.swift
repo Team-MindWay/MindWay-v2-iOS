@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GoalReadingView: View {
+    @Environment(\.dismiss) var dismiss
     @State var isShowingSettingPage = false
     
     var week: [String] = ["일", "월", "화", "수", "목", "금", "토"]
@@ -53,6 +54,7 @@ struct GoalReadingView: View {
         .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
             SettingGoalReadingView(viewModel: GoalReadingViewModel())
         }
+        .mindWayBackButton(dismiss: dismiss)
     }
     
     @ViewBuilder
