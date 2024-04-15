@@ -79,7 +79,3 @@ struct RecommendBookView: View {
         .padding(.vertical, 20)
     }
 }
-
-#Preview {
-    RecommendBookView()
-}
