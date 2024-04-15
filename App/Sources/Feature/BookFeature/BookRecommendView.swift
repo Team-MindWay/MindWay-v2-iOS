@@ -1,44 +1,44 @@
 import SwiftUI
 
 struct RecommendBookView: View {
-    @State private var topNavigationState: Bool = false
+    @State private var navigateTopBarStatus: Bool = false
     
     var body: some View {
         VStack {
             HStack(spacing: 20) {
                 Button {
-                    topNavigationState = false
+                    navigateTopBarStatus = false
                 } label: {
                     VStack(spacing: 0) {
                         Text("Novel")
-                            .foregroundColor(topNavigationState ? Color.mindway(.gray(.g4)) : Color.mindway(.black(.black)))
+                            .foregroundColor(navigateTopBarStatus ? Color.mindway(.gray(.g4)) : Color.mindway(.black(.black)))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .mindWaySemiboldFont(.m1)
                         
-                        if topNavigationState == false {
+                        if navigateTopBarStatus == false {
                             Rectangle()
                                 .foregroundColor(.mindway(.main(.main)))
-                                .frame(width: 80, height: 5)
+                                .frame(width: 80, height: 2)
                                 .cornerRadius(8)
                         }
                     }
                 }
                 
                 Button {
-                    topNavigationState = true
+                    navigateTopBarStatus = true
                 } label: {
                     VStack(spacing: 0) {
                         Text("Essay")
-                            .foregroundColor(topNavigationState ? Color.mindway(.black(.black)) : Color.mindway(.gray(.g4)))
+                            .foregroundColor(navigateTopBarStatus ? Color.mindway(.black(.black)) : Color.mindway(.gray(.g4)))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .mindWaySemiboldFont(.m1)
                         
-                        if topNavigationState == true {
+                        if navigateTopBarStatus == true {
                             Rectangle()
                                 .foregroundColor(.mindway(.main(.main)))
-                                .frame(width: 80, height: 5)
+                                .frame(width: 80, height: 2)
                                 .cornerRadius(8)
                         }
                     }
@@ -51,7 +51,7 @@ struct RecommendBookView: View {
             }
             .padding(.horizontal, 24)
             
-            TabView(selection: $topNavigationState) {
+            TabView(selection: $navigateTopBarStatus) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         ForEach(1...5, id: \.self) { _ in
@@ -78,4 +78,8 @@ struct RecommendBookView: View {
         }
         .padding(.vertical, 20)
     }
+}
+
+#Preview {
+    RecommendBookView()
 }
