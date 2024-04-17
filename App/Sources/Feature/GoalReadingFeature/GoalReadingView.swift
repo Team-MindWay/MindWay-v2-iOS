@@ -93,7 +93,3 @@ struct GoalReadingView: View {
         }
     }
 }
-
-#Preview {
-    GoalReadingView()
-}
