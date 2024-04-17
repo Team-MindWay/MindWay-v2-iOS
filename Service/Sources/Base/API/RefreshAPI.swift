@@ -44,7 +44,7 @@ extension RefreshAPI: MindWayAPI {
         case .reissueToken:
             return [
                 401: .unauthorized,
-                404: .unauthorized
+                404: .notFound
             ]
         }
     }
