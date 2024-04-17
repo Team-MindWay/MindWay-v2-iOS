@@ -40,7 +40,7 @@ struct GoalReadingGraph: View {
                                 .foregroundColor(.mindway(.gray(.g8)))
                             
                             Rectangle()
-                                .frame(width: 16, height: CGFloat(count+1)*CGFloat(count+1))
+                                .frame(width: 16, height: CGFloat(count*3))
                                 .foregroundColor(.mindway(.main(.main)))
                                 .cornerRadius(4, corners: [.topRight, .topLeft])
                         }

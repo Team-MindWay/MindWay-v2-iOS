@@ -21,7 +21,7 @@ struct MindWayBackButtonModifier: ViewModifier {
                         willDismiss()
                         dismiss()
                     } label: {
-                        MindWayAsset.Icons.chevronRight.swiftUIImage
+                        MindWayAsset.Icons.chevronLeft.swiftUIImage
                             .foregroundColor(.mindway(.black(.black)))
                     }
                 }
