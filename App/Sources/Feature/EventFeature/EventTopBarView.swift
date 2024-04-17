@@ -64,6 +64,7 @@ struct EventTopBarView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 
@@ -134,4 +135,8 @@ func noneEvent() -> some View {
         
         Spacer()
     }
+}
+
+#Preview {
+    EventTopBarView()
 }
