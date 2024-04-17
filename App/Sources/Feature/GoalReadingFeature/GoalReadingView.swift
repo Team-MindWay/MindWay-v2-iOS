@@ -8,39 +8,40 @@ struct GoalReadingView: View {
     var bookCount: [Int] = [0, 2, 2, 4, 1, 0, 0]
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 20) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .frame(height: 219)
-                        .foregroundColor(.mindway(.white(.white)))
-                        .shadow(color: .black.opacity(0.05), radius: 10, x: 0)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 20)
+        NavigationView {
+            ZStack {
+                VStack(spacing: 20) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .frame(height: 219)
+                            .foregroundColor(.mindway(.white(.white)))
+                            .shadow(color: .black.opacity(0.05), radius: 10, x: 0)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 20)
+                        
+                        GoalReadingGraph(
+                            bookCount: bookCount,
+                            week: week
+                        )
+                    }
                     
-                    GoalReadingGraph(
-                        bookCount: bookCount,
-                        week: week
-                    )
-                }
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .frame(height: 60)
-                        .foregroundColor(.mindway(.white(.white)))
-                        .shadow(color: .black.opacity(0.05), radius: 10, x: 0)
-                        .padding(.horizontal, 24)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .frame(height: 60)
+                            .foregroundColor(.mindway(.white(.white)))
+                            .shadow(color: .black.opacity(0.05), radius: 10, x: 0)
+                            .padding(.horizontal, 24)
+                        
+                        MindWayAsset.Icons.addMain.swiftUIImage
+                    }
                     
-                    MindWayAsset.Icons.addMain.swiftUIImage
+                    ForEach(0..<2, id: \.self) { _ in
+                        readingBookList()
+                    }
+                    
+                    Spacer()
                 }
-                
-                ForEach(0..<2, id: \.self) { _ in
-                    readingBookList()
-                }
-                
-                Spacer()
             }
-            .navigationTitle("목표 도서량")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
@@ -49,12 +50,18 @@ struct GoalReadingView: View {
                         MindWayAsset.Icons.addBlack.swiftUIImage
                     }
                 }
+                
+                ToolbarItemGroup(placement: .principal) {
+                    Text("목표 도서량")
+                        .mindWaySemiboldFont(.m2)
+                }
             }
+            .mindWayBackButton(dismiss: dismiss)
         }
         .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
             SettingGoalReadingView(viewModel: GoalReadingViewModel())
         }
-        .mindWayBackButton(dismiss: dismiss)
+        
     }
     
     @ViewBuilder
@@ -85,4 +92,8 @@ struct GoalReadingView: View {
                 .padding(.horizontal, 24)
         }
     }
+}
+
+#Preview {
+    GoalReadingView()
 }
