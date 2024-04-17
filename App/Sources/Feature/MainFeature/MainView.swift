@@ -169,3 +169,7 @@ struct MainView: View {
         }
     }
 }
+
+#Preview {
+    MainView()
+}

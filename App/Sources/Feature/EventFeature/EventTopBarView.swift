@@ -31,16 +31,17 @@ struct EventTopBarView: View {
                     }
                 }
                 .padding(.top, 32)
+
+                    Rectangle()
+                        .foregroundColor(.mindway(.main(.main)))
+                        .frame(width: UIScreen.main.bounds.width / 2, height: 2)
+                        .animation(.easeInOut(duration: 0.2), value: topNavigationState)
+                        .background(
+                            Rectangle()
+                                .frame(width: 1000, height: 2)
+                                .foregroundStyle(.gray)
+                        )
                 
-                Rectangle()
-                    .foregroundColor(.mindway(.main(.main)))
-                    .frame(width: 192, height: 2)
-                    .animation(.easeInOut(duration: 0.2), value: topNavigationState)
-                    .background(
-                        Rectangle()
-                            .frame(width: 1000, height: 2)
-                            .foregroundStyle(.gray)
-                    )
                 
                 TabView(selection: $topNavigationState) {
                     ScrollView(showsIndicators: false) {
@@ -133,4 +134,9 @@ func noneEvent() -> some View {
         
         Spacer()
     }
+}
+
+
+#Preview {
+    EventTopBarView()
 }
