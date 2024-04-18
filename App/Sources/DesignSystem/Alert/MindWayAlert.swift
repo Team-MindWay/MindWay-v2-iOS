@@ -56,18 +56,20 @@ struct MindWayAlertModifier: ViewModifier {
     @ViewBuilder
     func bitgouelAlert() -> some View {
         VStack(alignment: .center, spacing: 0) {
-            VStack(alignment: .center, spacing: 16) {
+            VStack(alignment: .leading) {
                 Text(title)
                     .mindWayRegularFont(.m3)
             }
-            .padding(.horizontal, 16)
-            .padding(.bottom, 16)
+            .padding(.bottom, 28)
+            .padding(.top, 15)
 
-            HStack {
+            HStack(spacing: 8) {
                 ForEach(alertActions, id: \.id) { button in
                     MindWayButton(text: button.text, buttonStyle: button.style, action: button.action)
                 }
             }
+            .padding(.horizontal, 24)
+            .padding(.bottom, 24)
         }
         .padding(.top, 16)
         .background(Color.mindway(.white(.white)))

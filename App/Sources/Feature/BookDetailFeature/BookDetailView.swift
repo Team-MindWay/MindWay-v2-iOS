@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     @State var isShowingBottomSheet = false
+    @State var isDelete = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -26,7 +27,7 @@ struct BookDetailView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
-                            isShowingBottomSheet = true
+                            isDelete = true
                         } label: {
                             MindWayAsset.Icons.seeMore.swiftUIImage
                         }
