@@ -3,14 +3,12 @@ import SwiftUI
 public extension View {
     func mindWayAlert(
         title: String,
-        description: String,
         isShowing: Binding<Bool>,
         alertActions: [mindWayAlertButtonType]
     ) -> some View {
         modifier(
             MindWayAlertModifier(
                 title: title,
-                description: description,
                 isShowing: isShowing,
                 alertActions: alertActions
             )
@@ -20,18 +18,15 @@ public extension View {
 
 struct MindWayAlertModifier: ViewModifier {
     var title: String
-    var description: String
     @Binding var isShowing: Bool
     var alertActions: [mindWayAlertButtonType]
 
     public init(
         title: String,
-        description: String,
         isShowing: Binding<Bool>,
         alertActions: [mindWayAlertButtonType]
     ) {
         self.title = title
-        self.description = description
         _isShowing = isShowing
         self.alertActions = alertActions
     }
