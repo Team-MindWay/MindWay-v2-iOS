@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RecommendBookView: View {
     @State private var navigateTopBarStatus: Bool = false
+    @State var isBookOpen: Bool = false
     
     var body: some View {
         VStack {
@@ -45,18 +46,23 @@ struct RecommendBookView: View {
                 }
                 
                 Spacer()
-                
+
                 MindWayAsset.Icons.addBlack.swiftUIImage
-                    .buttonWrapper {}
+                    .buttonWrapper {
+                        isBookOpen = true
+                    }
+                    .fullScreenCover(
+                        isPresented: $isBookOpen
+                    ) {
+                        BookOpenView()
+                    }
             }
-            .padding(.horizontal, 24)
             
             TabView(selection: $navigateTopBarStatus) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         ForEach(1...5, id: \.self) { _ in
                             RecommendBook()
-                                .padding(.horizontal, 24)
                         }
                     }
                 }
@@ -66,7 +72,6 @@ struct RecommendBookView: View {
                     VStack(spacing: 20) {
                         ForEach(1...5, id: \.self) { _ in
                             RecommendBook()
-                                .padding(.horizontal, 24)
                         }
                     }
                 }
@@ -77,5 +82,10 @@ struct RecommendBookView: View {
             
         }
         .padding(.vertical, 20)
+        .padding(.horizontal, 24)
     }
+}
+
+#Preview {
+    RecommendBookView()
 }
