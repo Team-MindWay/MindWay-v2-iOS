@@ -4,15 +4,15 @@ public extension View {
     func mindWayAlert(
         title: String,
         description: String,
-        isShowing: Binding<Bool>
-//        alertActions: [bitgouelAlertButtonType]
+        isShowing: Binding<Bool>,
+        alertActions: [mindWayAlertButtonType]
     ) -> some View {
         modifier(
             MindWayAlertModifier(
                 title: title,
                 description: description,
-                isShowing: isShowing
-//                alertActions: alertActions
+                isShowing: isShowing,
+                alertActions: alertActions
             )
         )
     }
@@ -22,18 +22,18 @@ struct MindWayAlertModifier: ViewModifier {
     var title: String
     var description: String
     @Binding var isShowing: Bool
-//    var alertActions: [bitgouelAlertButtonType]
+    var alertActions: [mindWayAlertButtonType]
 
     public init(
         title: String,
         description: String,
-        isShowing: Binding<Bool>
-//        alertActions: [bitgouelAlertButtonType]
+        isShowing: Binding<Bool>,
+        alertActions: [mindWayAlertButtonType]
     ) {
         self.title = title
         self.description = description
         _isShowing = isShowing
-//        self.alertActions = alertActions
+        self.alertActions = alertActions
     }
 
     func body(content: Content) -> some View {
@@ -69,9 +69,9 @@ struct MindWayAlertModifier: ViewModifier {
             .padding(.bottom, 16)
 
             HStack {
-//                ForEach(alertActions, id: \.id) { button in
-//                    CTAButton(text: button.text, style: button.style, action: button.action)
-//                }
+                ForEach(alertActions, id: \.id) { button in
+                    MindWayButton(text: button.text, buttonStyle: button.style, action: button.action)
+                }
             }
         }
         .padding(.top, 16)
