@@ -24,7 +24,7 @@ struct BookDetailView: View {
                 .padding(.top, -20)
                 .padding(.horizontal, 24)
                 .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             viewModel.isShowingBottomSheet = true
                         } label: {
@@ -32,7 +32,7 @@ struct BookDetailView: View {
                         }
                     }
                     
-                    ToolbarItemGroup(placement: .principal) {
+                    ToolbarItem(placement: .principal) {
                         Text("자세히 보기")
                             .mindWaySemiboldFont(.m2)
                     }

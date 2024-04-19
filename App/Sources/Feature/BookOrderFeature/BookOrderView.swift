@@ -57,12 +57,12 @@ struct BookOrderView: View {
                 .padding(.horizontal, 24)
                 .mindWayBackButton(dismiss: dismiss)
                 .toolbar {
-                    ToolbarItemGroup(placement: .principal) {
+                    ToolbarItem(placement: .principal) {
                         Text("도서 신청")
                             .mindWaySemiboldFont(.m2)
                     }
 
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             viewModel.isWarning = true
                         } label: {
