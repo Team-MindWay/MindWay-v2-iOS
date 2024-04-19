@@ -112,7 +112,3 @@ struct BookDetailView: View {
         }
     }
 }
-
-#Preview {
-    BookDetailView()
-}
