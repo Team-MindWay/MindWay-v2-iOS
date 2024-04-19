@@ -102,6 +102,9 @@ struct BookOrderView: View {
         .padding(.horizontal, 24)
         .padding(.top, 24)
         .padding(.bottom, 20)
-        .background(Color.mindway(.white(.white)).cornerRadius(8))
+        .background(
+            Color.mindway(.white(.white))
+                .cornerRadius(8)
+        )
     }
 }
