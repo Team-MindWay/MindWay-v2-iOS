@@ -27,7 +27,7 @@ struct BookOrderView: View {
 
                         MindWayTextField(
                             "YES24 링크를 입력해주세요.",
-                            text: $viewModel.bookLink,
+                            text: $viewModel.bookURL,
                             title: "링크",
                             errorText: "올바른 YES24 링크를 입력해주세요.",
                             isError: viewModel.linkError
@@ -44,9 +44,9 @@ struct BookOrderView: View {
                     ) {
                         viewModel.titleError = viewModel.bookTitle.isEmpty
                         viewModel.authorError = viewModel.bookAuthor.isEmpty
-                        viewModel.linkError = viewModel.bookLink.isEmpty
+                        viewModel.linkError = viewModel.bookURL.isEmpty
 
-                        if !viewModel.bookLink.isEmpty
+                        if !viewModel.bookURL.isEmpty
                             && !viewModel.bookAuthor.isEmpty
                             && !viewModel.bookTitle.isEmpty {
                             dismiss()
