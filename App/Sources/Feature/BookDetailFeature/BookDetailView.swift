@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     @State var isShowingBottomSheet = false
+    @State var isNavigateBookEditPage = false
     @State var isDelete = false
     @Environment(\.dismiss) var dismiss
     
@@ -52,10 +53,15 @@ struct BookDetailView: View {
             )
             .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("독서 수정")
-                        .mindWayRegularFont(.m3)
-                        .padding(.top, 28)
-                        .padding(.bottom, 20)
+                    Button {
+                        isNavigateBookEditPage = true
+                    } label: {
+                        Text("독서 수정")
+                            .mindWayRegularFont(.m3)
+                            .foregroundColor(.mindway(.black(.black)))
+                            .padding(.top, 28)
+                            .padding(.bottom, 20)
+                    }
                     
                     Divider()
                     
@@ -71,6 +77,14 @@ struct BookDetailView: View {
                     }
                 }
                 .padding(.horizontal, 24)
+            }
+            .fullScreenCover(
+                isPresented: Binding(
+                    get: { isNavigateBookEditPage },
+                    set: { _ in}
+                )
+            ) {
+                
             }
         }
     }
