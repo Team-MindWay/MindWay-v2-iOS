@@ -59,6 +59,7 @@ struct MindWayAlertModifier: ViewModifier {
             VStack(alignment: .leading) {
                 Text(title)
                     .mindWayRegularFont(.m3)
+                    .multilineTextAlignment(.center)
             }
             .padding(.bottom, 28)
             .padding(.top, 15)
