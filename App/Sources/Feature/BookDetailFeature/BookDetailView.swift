@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    @State var isShowingBottomSheet = false
-    @State var isNavigateBookEditPage = false
-    @State var isDelete = false
+    @StateObject var viewModel = BookDetailViewModel()
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -28,7 +27,7 @@ struct BookDetailView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
-                            isShowingBottomSheet = true
+                            viewModel.isShowingBottomSheet = true
                         } label: {
                             MindWayAsset.Icons.seeMore.swiftUIImage
                         }
@@ -43,18 +42,18 @@ struct BookDetailView: View {
             }
             .mindWayAlert(
                 title: "독서를 삭제하시겠습니까?",
-                isShowing: $isDelete,
+                isShowing: $viewModel.isDelete,
                 alertActions: [
                     .init(text: "취소", style: .cancel) {
-                        isDelete = false
+                        viewModel.isDelete = false
                     },
                     .init(text: "삭제", style: .default) { }
                 ]
             )
-            .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
+            .mindWayBottomSheet(isShowing: $viewModel.isShowingBottomSheet) {
                 VStack(alignment: .leading, spacing: 0) {
                     Button {
-                        isNavigateBookEditPage = true
+                        viewModel.isNavigateBookEditPage = true
                     } label: {
                         Text("독서 수정")
                             .mindWayRegularFont(.m3)
@@ -66,8 +65,8 @@ struct BookDetailView: View {
                     Divider()
                     
                     Button {
-                        isDelete = true
-                        isShowingBottomSheet = false
+                        viewModel.isDelete = true
+                        viewModel.isShowingBottomSheet = false
                     } label: {
                         Text("독서 삭제")
                             .mindWayRegularFont(.m3)
@@ -80,7 +79,7 @@ struct BookDetailView: View {
             }
             .fullScreenCover(
                 isPresented: Binding(
-                    get: { isNavigateBookEditPage },
+                    get: { viewModel.isNavigateBookEditPage },
                     set: { _ in}
                 )
             ) {

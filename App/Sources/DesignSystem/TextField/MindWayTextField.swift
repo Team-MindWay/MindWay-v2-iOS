@@ -42,16 +42,16 @@ struct MindWayTextField: View {
             TextField(placeholder, text: $text)
                 .padding(.horizontal, 16)
                 .frame(height: 56)
-                .cornerRadius(8)
                 .onSubmit(onSubmit)
                 .focused($isFocused)
                 .foregroundColor(.mindway(.black(.black)))
-                .background(borderColor)
+                .background(Color.mindway(.gray(.g1)))
                 .mindWayRegularFont(.m3)
                 .overlay {
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(borderColor)
                 }
+                .cornerRadius(8)
                 .onTapGesture {
                     isFocused = true
                 }

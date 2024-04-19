@@ -2,7 +2,8 @@ import SwiftUI
 
 struct RecommendBookView: View {
     @State private var navigateTopBarStatus: Bool = false
-    
+    @State var isBookOrder: Bool = false
+
     var body: some View {
         VStack {
             HStack(spacing: 20) {
@@ -15,7 +16,7 @@ struct RecommendBookView: View {
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .mindWaySemiboldFont(.m1)
-                        
+
                         if navigateTopBarStatus == false {
                             Rectangle()
                                 .foregroundColor(.mindway(.main(.main)))
@@ -24,7 +25,7 @@ struct RecommendBookView: View {
                         }
                     }
                 }
-                
+
                 Button {
                     navigateTopBarStatus = true
                 } label: {
@@ -34,7 +35,7 @@ struct RecommendBookView: View {
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .mindWaySemiboldFont(.m1)
-                        
+
                         if navigateTopBarStatus == true {
                             Rectangle()
                                 .foregroundColor(.mindway(.main(.main)))
@@ -43,30 +44,34 @@ struct RecommendBookView: View {
                         }
                     }
                 }
-                
+
                 Spacer()
-                
+
                 MindWayAsset.Icons.addBlack.swiftUIImage
-                    .buttonWrapper {}
+                    .buttonWrapper {
+                        isBookOrder = true
+                    }
+                    .fullScreenCover(
+                        isPresented: $isBookOrder
+                    ) {
+                        BookOrderView()
+                    }
             }
-            .padding(.horizontal, 24)
-            
+
             TabView(selection: $navigateTopBarStatus) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         ForEach(1...5, id: \.self) { _ in
                             RecommendBook()
-                                .padding(.horizontal, 24)
                         }
                     }
                 }
                 .tag(false)
-                
+
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         ForEach(1...5, id: \.self) { _ in
                             RecommendBook()
-                                .padding(.horizontal, 24)
                         }
                     }
                 }
@@ -74,8 +79,9 @@ struct RecommendBookView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .padding(.vertical, 28)
-            
+
         }
         .padding(.vertical, 20)
+        .padding(.horizontal, 24)
     }
 }

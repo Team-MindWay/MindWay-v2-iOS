@@ -6,14 +6,14 @@ struct RecommendBook: View {
             HStack {
                 Text("네가 마지막으로 남긴 노래")
                     .mindWaySemiboldFont(.m3)
-                
+
                 Spacer()
-                
+
                 Text("이치조 미사키")
                     .mindWayRegularFont(.label)
                     .foregroundColor(.mindway(.gray(.g4)))
             }
-            
+
             Text("내가 사랑해 마지않는 네가 마지막으로 남긴 노래를 들었다.")
                 .mindWayRegularFont(.m3)
                 .foregroundColor(.mindway(.gray(.g8)))
