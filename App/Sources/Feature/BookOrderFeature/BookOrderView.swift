@@ -57,16 +57,16 @@ struct BookOrderView: View {
                 .padding(.horizontal, 24)
                 .mindWayBackButton(dismiss: dismiss)
                 .toolbar {
-                    ToolbarItem(placement: .principal) {
+                    ToolbarItemGroup(placement: .principal) {
                         Text("도서 신청")
                             .mindWaySemiboldFont(.m2)
                     }
 
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
                             viewModel.isWarning = true
                         } label: {
-                            MindWayAsset.Icons.exclamationmark.swiftUIImage
+                            MindWayAsset.Icons.exclamationMark.swiftUIImage
                         }
                     }
                 }
