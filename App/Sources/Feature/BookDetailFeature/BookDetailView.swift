@@ -41,7 +41,7 @@ struct BookDetailView: View {
                 .mindWayBackButton(dismiss: dismiss)
             }
             .mindWayAlert(
-                title: "게시글을 삭제하시겠습니까?",
+                title: "독서를 삭제하시겠습니까?",
                 isShowing: $isDelete,
                 alertActions: [
                     .init(text: "취소", style: .cancel) {
