@@ -5,8 +5,8 @@ struct BookOrderView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView {
-            ZStack {
+        ZStack {
+            NavigationView {
                 VStack(spacing: 0) {
                     VStack(spacing: 28) {
                         MindWayTextField(
@@ -82,4 +82,8 @@ struct BookOrderView: View {
             )
         }
     }
+}
+
+#Preview {
+    BookOrderView(viewModel: BookOrderViewModel())
 }

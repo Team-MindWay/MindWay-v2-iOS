@@ -5,8 +5,8 @@ struct BookDetailView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationView {
-            ZStack {
+        ZStack {
+            NavigationView {
                 VStack(spacing: 0) {
                     TextFieldRow(
                         placeholder: "제목",
@@ -111,4 +111,8 @@ struct BookDetailView: View {
             }
         }
     }
+}
+
+#Preview {
+    BookDetailView(viewModel: BookDetailViewModel())
 }
