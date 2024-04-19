@@ -83,7 +83,3 @@ struct BookOrderView: View {
         }
     }
 }
-
-#Preview {
-    BookOrderView(viewModel: BookOrderViewModel())
-}
