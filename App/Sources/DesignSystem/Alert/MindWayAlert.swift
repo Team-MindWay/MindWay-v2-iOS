@@ -41,7 +41,7 @@ struct MindWayAlertModifier: ViewModifier {
                     .ignoresSafeArea()
 
                 bitgouelAlert()
-                    .padding(29)
+                    .padding(24)
                     .transition(
                         .asymmetric(
                             insertion: AnyTransition.move(edge: .bottom),
