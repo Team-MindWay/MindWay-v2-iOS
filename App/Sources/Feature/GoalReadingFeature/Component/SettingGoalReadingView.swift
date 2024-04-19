@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingGoalReadingView: View {
     @StateObject var viewModel: GoalReadingViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("기간")

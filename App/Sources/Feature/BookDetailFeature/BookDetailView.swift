@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    @StateObject var viewModel = BookDetailViewModel()
-    
+    @StateObject var viewModel: BookDetailViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

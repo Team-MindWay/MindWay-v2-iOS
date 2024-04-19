@@ -1,5 +1,5 @@
 import SwiftUI
 
 final class GoalReadingViewModel: ObservableObject {
-    @State var bookCount = ""
+    @Published var bookCount = ""
 }
