@@ -27,7 +27,7 @@ struct BookDetailView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
-                            isDelete = true
+                            isShowingBottomSheet = true
                         } label: {
                             MindWayAsset.Icons.seeMore.swiftUIImage
                         }
@@ -39,6 +39,38 @@ struct BookDetailView: View {
                     }
                 }
                 .mindWayBackButton(dismiss: dismiss)
+            }
+            .mindWayAlert(
+                title: "게시글을 삭제하시겠습니까?",
+                isShowing: $isDelete,
+                alertActions: [
+                    .init(text: "취소", style: .cancel) {
+                        isDelete = false
+                    },
+                    .init(text: "삭제", style: .default) { }
+                ]
+            )
+            .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("독서 수정")
+                        .mindWayRegularFont(.m3)
+                        .padding(.top, 28)
+                        .padding(.bottom, 20)
+                    
+                    Divider()
+                    
+                    Button {
+                        isDelete = true
+                        isShowingBottomSheet = false
+                    } label: {
+                        Text("독서 삭제")
+                            .mindWayRegularFont(.m3)
+                            .foregroundColor(.mindway(.system(.system)))
+                            .padding(.top, 20)
+                            .padding(.bottom, 46)
+                    }
+                }
+                .padding(.horizontal, 24)
             }
         }
     }
