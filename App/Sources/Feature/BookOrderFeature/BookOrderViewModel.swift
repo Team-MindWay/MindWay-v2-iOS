@@ -1,6 +1,6 @@
 import Foundation
 
-final class BookOpenViewModel: ObservableObject {
+final class BookOrderViewModel: ObservableObject {
     @Published var bookTitle: String = ""
     @Published var bookAuthor: String = ""
     @Published var bookLink: String = ""

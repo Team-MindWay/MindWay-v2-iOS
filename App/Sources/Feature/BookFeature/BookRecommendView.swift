@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RecommendBookView: View {
     @State private var navigateTopBarStatus: Bool = false
-    @State var isBookOpen: Bool = false
+    @State var isBookOrder: Bool = false
 
     var body: some View {
         VStack {
@@ -49,12 +49,12 @@ struct RecommendBookView: View {
 
                 MindWayAsset.Icons.addBlack.swiftUIImage
                     .buttonWrapper {
-                        isBookOpen = true
+                        isBookOrder = true
                     }
                     .fullScreenCover(
-                        isPresented: $isBookOpen
+                        isPresented: $isBookOrder
                     ) {
-                        BookOpenView()
+                        BookOrderView()
                     }
             }
 
