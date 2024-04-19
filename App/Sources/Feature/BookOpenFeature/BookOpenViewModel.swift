@@ -1,9 +1,11 @@
-//
-//  BookOpenViewModel.swift
-//  MindWay
-//
-//  Created by Mac on 4/18/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import Foundation
+
+final class BookOpenViewModel: ObservableObject {
+    @Published var bookTitle: String = ""
+    @Published var bookAuthor: String = ""
+    @Published var bookLink: String = ""
+    @Published var titleError: Bool = false
+    @Published var authorError: Bool = false
+    @Published var linkError: Bool = false
+    @Published var isWarning: Bool = false
+}
