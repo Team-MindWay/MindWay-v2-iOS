@@ -26,7 +26,7 @@ struct BookEditView: View {
                     text: "확인",
                     buttonStyle: .default
                 ) {
-                    
+                    dismiss()
                 }
                 .padding(.top, 18)
             }
