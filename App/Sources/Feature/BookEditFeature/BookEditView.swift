@@ -21,6 +21,12 @@ struct BookEditView: View {
                 .padding(.top, 20)
                 
                 Spacer()
+                
+                MindWayButton(
+                    text: "확인",
+                    buttonStyle: .default
+                )
+                .padding(.top, 18)
             }
             .padding(.top, -20)
             .padding(.horizontal, 24)
