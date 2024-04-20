@@ -66,6 +66,7 @@ struct BookOrderView: View {
                         Button {
                             viewModel.isWarning = true
                         } label: {
+                            //MindWayAsset.Icons.exclamationMark.swiftUIImage
                             MindWayAsset.Icons.exclamationMark.swiftUIImage
                         }
                     }
