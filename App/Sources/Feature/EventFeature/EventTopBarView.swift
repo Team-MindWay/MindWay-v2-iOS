@@ -42,7 +42,6 @@ struct EventTopBarView: View {
                                 .foregroundStyle(.gray)
                         )
                 
-                
                 TabView(selection: $topNavigationState) {
                     ScrollView(showsIndicators: false) {
                         ForEach(1...5, id: \.self) { _ in
