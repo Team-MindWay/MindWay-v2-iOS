@@ -82,7 +82,7 @@ struct BookDetailView: View {
                     set: { _ in}
                 )
             ) {
-                
+                BookEditView(viewModel: BookEditViewModel())
             }
         }
     }
