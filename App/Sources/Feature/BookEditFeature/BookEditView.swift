@@ -1,22 +1,21 @@
 import SwiftUI
 
 struct BookEditView: View {
+    @StateObject var viewModel: BookEditViewModel
     @Environment(\.dismiss) var dismiss
-    @State var title = "세상의 마지막 기차역"
-    @State var content = "세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마지막 기차역세상의 마"
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
                 MindWayTextField(
-                    text: $title,
+                    text: $viewModel.title,
                     title: "제목"
                 )
                 
                 MindWayTextEditor(
-                    text: $content,
+                    text: $viewModel.plot,
                     title: "줄거리",
-                    textCount: content.count,
+                    textCount: viewModel.plot.count,
                     maxTextCount: 1000
                 )
                 .padding(.top, 20)
