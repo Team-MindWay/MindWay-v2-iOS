@@ -83,7 +83,7 @@ func detailView(
                     Button {
 
                     } label: {
-                        MindWayAsset.Icons.chevronRight.swiftUIImage
+                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
                     }
                 }
                 .padding(.top, 20)
