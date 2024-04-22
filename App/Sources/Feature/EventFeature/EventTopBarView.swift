@@ -73,7 +73,6 @@ func detailView(
     eventDescription: String,
     eventTime: String
 ) -> some View {
-    VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     Text(eventTitle)
@@ -117,7 +116,6 @@ func detailView(
                     .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
             )
             .padding(.top, 40)
-    }
 }
 
 @ViewBuilder
