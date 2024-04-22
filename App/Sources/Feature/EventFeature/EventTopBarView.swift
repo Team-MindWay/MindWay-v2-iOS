@@ -7,7 +7,7 @@ struct EventTopBarView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: topNavigationState ? .trailing : .leading, spacing: 0) {
-                HStack(spacing: 0){
+                HStack(spacing: 0) {
                     Button {
                         topNavigationState = false
                     } label: {
