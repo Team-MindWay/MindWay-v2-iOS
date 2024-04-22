@@ -7,7 +7,7 @@ struct EventTopBarView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: topNavigationState ? .trailing : .leading, spacing: 0) {
-                HStack(spacing: 0){
+                HStack(spacing: 0) {
                     Button {
                         topNavigationState = false
                     } label: {
@@ -42,7 +42,6 @@ struct EventTopBarView: View {
                                 .foregroundStyle(.gray)
                         )
                 
-                
                 TabView(selection: $topNavigationState) {
                     ScrollView(showsIndicators: false) {
                         ForEach(1...5, id: \.self) { _ in
@@ -74,37 +73,26 @@ func detailView(
     eventDescription: String,
     eventTime: String
 ) -> some View {
-    VStack(alignment: .leading, spacing: 0) {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .frame(height: 176)
-                .foregroundColor(.mindway(.white(.white)))
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
-                .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
-            
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 0) {
                     Text(eventTitle)
                         .mindWaySemiboldFont(.m3)
                         .frame(width: 270, height: 24, alignment: .leading)
-                    
+
                     Button {
                         
                     } label: {
-                        MindWayAsset.Icons.chevronRight.swiftUIImage
+                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
                     }
                 }
-                .padding(.top, 20)
-                
+
                 Text(eventDescription)
                     .mindWayRegularFont(.m3)
                     .foregroundColor(.mindway(.gray(.g8)))
                     .padding(.trailing, 48)
-                    .padding(.top, 8)
                     .lineLimit(3)
                     .lineSpacing(5)
-                
+
                 HStack(spacing: 0) {
                     Text(eventTime)
                         .mindWayRegularFont(.label)
@@ -112,14 +100,20 @@ func detailView(
                         .frame(height: 22)
                         .font(.system(size: 14))
                 }
-                .padding(.top, 8)
-                
+
                 Spacer()
             }
+            .padding(.horizontal, 48)
+            .padding(.top,20)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(.mindway(.white(.white)))
+                    .padding(.horizontal, 20)
+                    .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
+                
+            )
             .padding(.top, 20)
-            .padding(.leading, 48)
-        }
-    }
+            
 }
 
 @ViewBuilder
