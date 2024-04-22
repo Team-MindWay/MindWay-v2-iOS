@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GoalReadingView: View {
     @Environment(\.dismiss) var dismiss
-    @State var isShowingSettingPage = false
+    @StateObject var viewModel: GoalReadingViewModel
 
     var week: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var bookCount: [Int] = [0, 2, 2, 4, 1, 0, 0]
@@ -34,6 +34,9 @@ struct GoalReadingView: View {
 
                         MindWayAsset.Icons.addMain.swiftUIImage
                     }
+                    .onTapGesture {
+                        viewModel.isNavigateBookPostPage = true
+                    }
 
                     ForEach(0..<2, id: \.self) { _ in
                         readingBookList()
@@ -41,11 +44,12 @@ struct GoalReadingView: View {
 
                     Spacer()
                 }
+                .padding(.top, -20)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
-                        isShowingSettingPage = true
+                        viewModel.isShowingSettingPage = true
                     } label: {
                         MindWayAsset.Icons.addBlack.swiftUIImage
                     }
@@ -58,8 +62,16 @@ struct GoalReadingView: View {
             }
             .mindWayBackButton(dismiss: dismiss)
         }
-        .mindWayBottomSheet(isShowing: $isShowingSettingPage) {
+        .mindWayBottomSheet(isShowing: $viewModel.isShowingSettingPage) {
             SettingGoalReadingView(viewModel: GoalReadingViewModel())
+        }
+        .fullScreenCover(
+            isPresented: Binding(
+            get: { viewModel.isNavigateBookPostPage },
+            set: { _ in }
+            )
+        ) {
+            BookPostView(viewModel: BookPostViewModel())
         }
     }
 
