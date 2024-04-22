@@ -44,6 +44,7 @@ struct GoalReadingView: View {
 
                     Spacer()
                 }
+                .padding(.top, -20)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
