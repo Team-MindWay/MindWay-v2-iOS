@@ -44,8 +44,3 @@ struct BookPostView: View {
         }
     }
 }
-
-
-#Preview {
-    BookPostView(viewModel: BookPostViewModel())
-}

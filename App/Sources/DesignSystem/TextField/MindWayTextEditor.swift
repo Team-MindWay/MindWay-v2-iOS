@@ -82,8 +82,8 @@ public struct MindWayTextEditor: View {
                     Text(placeholder)
                         .foregroundColor(.mindway(.gray(.g4)))
                         .mindWayRegularFont(.m3)
-                        .padding(.top, 16)
-                        .padding(.leading, 16)
+                        .padding(.top, 21)
+                        .padding(.leading, 17)
                 }
                 
                 if isError {
