@@ -130,7 +130,3 @@ func noneEvent() -> some View {
         Spacer()
     }
 }
-
-#Preview {
-    EventTopBarView()
-}
