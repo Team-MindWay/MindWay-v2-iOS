@@ -73,25 +73,23 @@ func detailView(
     eventDescription: String,
     eventTime: String
 ) -> some View {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 0) {
                     Text(eventTitle)
                         .mindWaySemiboldFont(.m3)
                         .frame(width: 270, height: 24, alignment: .leading)
 
                     Button {
-
+                        
                     } label: {
-                        MindWayAsset.Icons.chevronRight.swiftUIImage
+                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
                     }
                 }
-                .padding(.top, 20)
 
                 Text(eventDescription)
                     .mindWayRegularFont(.m3)
                     .foregroundColor(.mindway(.gray(.g8)))
                     .padding(.trailing, 48)
-                    .padding(.top, 8)
                     .lineLimit(3)
                     .lineSpacing(5)
 
@@ -102,20 +100,20 @@ func detailView(
                         .frame(height: 22)
                         .font(.system(size: 14))
                 }
-                .padding(.top, 8)
 
                 Spacer()
             }
             .padding(.horizontal, 48)
+            .padding(.top,20)
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 176)
                     .foregroundColor(.mindway(.white(.white)))
                     .padding(.horizontal, 20)
-                    .padding(.top, 20)
                     .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
+                
             )
-            .padding(.top, 40)
+            .padding(.top, 20)
+            
 }
 
 @ViewBuilder
@@ -131,4 +129,8 @@ func noneEvent() -> some View {
         
         Spacer()
     }
+}
+
+#Preview {
+    EventTopBarView()
 }
