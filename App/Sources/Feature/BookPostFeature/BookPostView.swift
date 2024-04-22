@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct BookPostView: View {
-//    @StateObject var viewModel: EditBookViewModel
-    @State var title = ""
-    @State var plot = ""
+    @StateObject var viewModel: BookPostViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -11,15 +9,15 @@ struct BookPostView: View {
             VStack(spacing: 0) {
                 MindWayTextField(
                     "책 제목을 입력해주세요",
-                    text: $title,
+                    text: $viewModel.title,
                     title: "제목"
                 )
                 
                 MindWayTextEditor(
                     "줄거리를 입력해주세요",
-                    text: $plot,
+                    text: $viewModel.plot,
                     title: "줄거리",
-                    textCount: plot.count,
+                    textCount: viewModel.plot.count,
                     maxTextCount: 1000
                 )
                 .padding(.top, 20)
@@ -45,4 +43,9 @@ struct BookPostView: View {
             .mindWayBackButton(dismiss: dismiss)
         }
     }
+}
+
+
+#Preview {
+    BookPostView(viewModel: BookPostViewModel())
 }
