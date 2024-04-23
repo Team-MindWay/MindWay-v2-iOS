@@ -46,7 +46,7 @@ struct MyPageView: View {
         .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
             VStack(alignment: .leading, spacing: 0) {
                 Button {
-
+                    
                 } label: {
                     Text("MINDWAY 소개")
                         .mindWayRegularFont(.m3)
