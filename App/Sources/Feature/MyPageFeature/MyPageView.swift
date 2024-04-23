@@ -2,6 +2,8 @@ import SwiftUI
 
 struct MyPageView: View {
     @State var isShowingBottomSheet = false
+    @State var isNavigateMindWayIntroducePage = false
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -58,7 +60,7 @@ struct MyPageView: View {
                 Divider()
                 
                 Button {
-                    
+                    isNavigateMindWayIntroducePage = true
                 } label: {
                     Text("로그아웃")
                         .mindWayRegularFont(.m3)
@@ -68,6 +70,14 @@ struct MyPageView: View {
                 }
             }
             .padding(.horizontal, 24)
+        }
+        .fullScreenCover(
+            isPresented: Binding(
+                get: { isNavigateMindWayIntroducePage },
+                set: { _ in}
+            )
+        ) {
+            MindWayInformationView()
         }
     }
     
