@@ -36,7 +36,3 @@ struct MindWayInformationView: View {
         }
     }
 }
-
-#Preview {
-    MindWayInformationView()
-}
