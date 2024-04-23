@@ -48,7 +48,7 @@ struct MyPageView: View {
         .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
             VStack(alignment: .leading, spacing: 0) {
                 Button {
-                    
+                    isNavigateMindWayIntroducePage = true
                 } label: {
                     Text("MINDWAY 소개")
                         .mindWayRegularFont(.m3)
@@ -60,7 +60,7 @@ struct MyPageView: View {
                 Divider()
                 
                 Button {
-                    isNavigateMindWayIntroducePage = true
+                    
                 } label: {
                     Text("로그아웃")
                         .mindWayRegularFont(.m3)
