@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MindWayInformationView: View {
+struct MindWayIntroduceView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

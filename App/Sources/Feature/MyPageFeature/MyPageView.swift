@@ -77,7 +77,7 @@ struct MyPageView: View {
                 set: { _ in}
             )
         ) {
-            MindWayInformationView()
+            MindWayIntroduceView()
         }
     }
     
