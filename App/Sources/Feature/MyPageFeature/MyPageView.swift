@@ -74,7 +74,7 @@ struct MyPageView: View {
         .fullScreenCover(
             isPresented: Binding(
                 get: { isNavigateMindWayIntroducePage },
-                set: { _ in}
+                set: { _ in }
             )
         ) {
             MindWayIntroduceView()
