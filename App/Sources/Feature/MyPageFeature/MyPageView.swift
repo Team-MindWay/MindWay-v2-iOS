@@ -36,9 +36,11 @@ struct MyPageView: View {
                     .foregroundColor(.mindway(.gray(.g4)))
                     .padding(.top, 40)
                 
-                ForEach(0..<2, id: \.self) { _ in
-                    BookOrderListRow()
-                        .padding(.top, 20)
+                ScrollView(.vertical) {
+                    ForEach(0..<2, id: \.self) { _ in
+                        BookOrderListRow()
+                            .padding(.top, 20)
+                    }
                 }
                 
                 Spacer()
