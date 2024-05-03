@@ -34,5 +34,6 @@ struct MindWayIntroduceView: View {
                 }
             }
         }
+        
     }
 }

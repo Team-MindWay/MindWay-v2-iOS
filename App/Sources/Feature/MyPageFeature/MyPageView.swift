@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @Environment(\.dismiss) var dismiss
     @State var isShowingBottomSheet = false
     @State var isNavigateMindWayIntroducePage = false
     
@@ -47,6 +48,7 @@ struct MyPageView: View {
             }
             .padding(.horizontal, 24)
         }
+        .mindWayBackButton(dismiss: dismiss)
         .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
             VStack(alignment: .leading, spacing: 0) {
                 Button {
@@ -73,12 +75,7 @@ struct MyPageView: View {
             }
             .padding(.horizontal, 24)
         }
-        .fullScreenCover(
-            isPresented: Binding(
-                get: { isNavigateMindWayIntroducePage },
-                set: { _ in}
-            )
-        ) {
+        .fullScreenCover(isPresented: $isNavigateMindWayIntroducePage) {
             MindWayIntroduceView()
         }
     }
