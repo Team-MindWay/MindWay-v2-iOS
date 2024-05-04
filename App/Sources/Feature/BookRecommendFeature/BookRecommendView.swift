@@ -37,10 +37,9 @@ struct BookRecommendView: View {
                             .mindWaySemiboldFont(.m1)
 
                         if navigateTopBarStatus == true {
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.mindway(.main(.main)))
                                 .frame(width: 80, height: 2)
-                                .cornerRadius(8)
                         }
                     }
                 }
