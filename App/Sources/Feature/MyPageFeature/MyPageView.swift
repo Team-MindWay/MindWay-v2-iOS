@@ -6,48 +6,60 @@ struct MyPageView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .leading, spacing: 0) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("안녕하세요!")
-                            .mindWayRegularFont(.h3)
-                        
-                        HStack(spacing: 0) {
-                            Text("한재형")
-                                .mindWaySemiboldFont(.h3)
-                                .foregroundColor(.mindway(.main(.main)))
+            NavigationView {
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("안녕하세요!")
+                                .mindWayRegularFont(.h3)
                             
-                            Text("님")
-                                .mindWaySemiboldFont(.h3)
+                            HStack(spacing: 0) {
+                                Text("한재형")
+                                    .mindWaySemiboldFont(.h3)
+                                    .foregroundColor(.mindway(.main(.main)))
+                                
+                                Text("님")
+                                    .mindWaySemiboldFont(.h3)
+                            }
+                        }
+                        .padding(.top, 60)
+                        
+                        Spacer()
+                        
+                        MindWayAsset.Icons.seeMore.swiftUIImage
+                            .onTapGesture {
+                                viewModel.isShowingBottomSheet = true
+                            }
+                    }
+                    
+                    Text("도서 신청 목록")
+                        .mindWayRegularFont(.label)
+                        .foregroundColor(.mindway(.gray(.g4)))
+                        .padding(.top, 40)
+                    
+                    ScrollView(.vertical) {
+                        ForEach(0..<2, id: \.self) { _ in
+                            BookOrderListRow()
+                                .padding(.top, 20)
                         }
                     }
-                    .padding(.top, 60)
                     
                     Spacer()
-                    
-                    MindWayAsset.Icons.seeMore.swiftUIImage
-                        .onTapGesture {
-                            viewModel.isShowingBottomSheet = true
-                        }
                 }
-                
-                Text("도서 신청 목록")
-                    .mindWayRegularFont(.label)
-                    .foregroundColor(.mindway(.gray(.g4)))
-                    .padding(.top, 40)
-                
-                ScrollView(.vertical) {
-                    ForEach(0..<2, id: \.self) { _ in
-                        BookOrderListRow()
-                            .padding(.top, 20)
-                    }
-                }
-                
-                Spacer()
+                .padding(.horizontal, 24)
             }
-            .padding(.horizontal, 24)
         }
         .mindWayBackButton(dismiss: dismiss)
+        .mindWayDeleteAlert(
+            bookTitle: "세상의 마지막 기차역",
+            isShowing: $viewModel.isShowingDeleteAlert,
+            alertActions: [
+                .init(text: "취소", style: .cancel) {
+                    viewModel.isShowingDeleteAlert = false
+                },
+                .init(text: "삭제", style: .default) { }
+            ]
+        )
         .mindWayBottomSheet(isShowing: $viewModel.isShowingBottomSheet) {
             VStack(alignment: .leading, spacing: 0) {
                 Button {
@@ -77,16 +89,6 @@ struct MyPageView: View {
         .fullScreenCover(isPresented: $viewModel.isNavigateMindWayIntroducePage) {
             MindWayIntroduceView()
         }
-        .mindWayDeleteAlert(
-            bookTitle: "세상의 마지막 기차역",
-            isShowing: $viewModel.isShowingDeleteAlert,
-            alertActions: [
-                .init(text: "취소", style: .cancel) {
-                    viewModel.isShowingDeleteAlert = false
-                },
-                .init(text: "삭제", style: .default) { }
-            ]
-        )
     }
     
     @ViewBuilder

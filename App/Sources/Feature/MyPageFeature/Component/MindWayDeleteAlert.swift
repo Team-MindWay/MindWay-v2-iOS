@@ -56,7 +56,7 @@ struct MindWayDeleteAlertModifier: ViewModifier {
     @ViewBuilder
     func mindWayDeleteAlert() -> some View {
         VStack(alignment: .center, spacing: 0) {
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 HStack(spacing: 0) {
                     Text("신청하신 도서를 ")
                         .foregroundColor(.mindway(.black(.black)))
@@ -72,12 +72,13 @@ struct MindWayDeleteAlertModifier: ViewModifier {
                 
                 Text(bookTitle)
                     .mindWayRegularFont(.m3)
-                    .frame(width: 320)
-                    .padding(.vertical, 12)
+                    .frame(width: 310)
+                    .padding(.vertical, 15)
                     .overlay {
                         RoundedRectangle(cornerRadius: 8)
                             .strokeBorder(Color.mindway(.gray(.g2)))
                     }
+                    .padding(.top, 12)
             }
             .padding(.bottom, 28)
             .padding(.top, 15)
