@@ -40,7 +40,7 @@ struct MindWayAlertModifier: ViewModifier {
                     .opacity(0.4)
                     .ignoresSafeArea()
 
-                bitgouelAlert()
+                mindWayAlert()
                     .padding(24)
                     .transition(
                         .asymmetric(
@@ -54,7 +54,7 @@ struct MindWayAlertModifier: ViewModifier {
     }
 
     @ViewBuilder
-    func bitgouelAlert() -> some View {
+    func mindWayAlert() -> some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .leading) {
                 Text(title)
