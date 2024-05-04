@@ -2,8 +2,7 @@ import SwiftUI
 
 struct MyPageView: View {
     @Environment(\.dismiss) var dismiss
-    @State var isShowingBottomSheet = false
-    @State var isNavigateMindWayIntroducePage = false
+    @StateObject var viewModel: MyPageViewModel
     
     var body: some View {
         ZStack {
@@ -28,7 +27,7 @@ struct MyPageView: View {
                     
                     MindWayAsset.Icons.seeMore.swiftUIImage
                         .onTapGesture {
-                            isShowingBottomSheet = true
+                            viewModel.isShowingBottomSheet = true
                         }
                 }
                 
@@ -49,10 +48,10 @@ struct MyPageView: View {
             .padding(.horizontal, 24)
         }
         .mindWayBackButton(dismiss: dismiss)
-        .mindWayBottomSheet(isShowing: $isShowingBottomSheet) {
+        .mindWayBottomSheet(isShowing: $viewModel.isShowingBottomSheet) {
             VStack(alignment: .leading, spacing: 0) {
                 Button {
-                    isNavigateMindWayIntroducePage = true
+                    viewModel.isNavigateMindWayIntroducePage = true
                 } label: {
                     Text("MINDWAY 소개")
                         .mindWayRegularFont(.m3)
@@ -75,9 +74,19 @@ struct MyPageView: View {
             }
             .padding(.horizontal, 24)
         }
-        .fullScreenCover(isPresented: $isNavigateMindWayIntroducePage) {
+        .fullScreenCover(isPresented: $viewModel.isNavigateMindWayIntroducePage) {
             MindWayIntroduceView()
         }
+        .mindWayDeleteAlert(
+            bookTitle: "세상의 마지막 기차역",
+            isShowing: $viewModel.isShowingDeleteAlert,
+            alertActions: [
+                .init(text: "취소", style: .cancel) {
+                    viewModel.isShowingDeleteAlert = false
+                },
+                .init(text: "삭제", style: .default) { }
+            ]
+        )
     }
     
     @ViewBuilder
@@ -99,7 +108,7 @@ struct MyPageView: View {
                 
                 MindWayAsset.Icons.trash.swiftUIImage
                     .onTapGesture {
-                        <#code#>
+                        viewModel.isShowingDeleteAlert = true
                     }
             }
         }
