@@ -39,12 +39,12 @@ struct EditBookOrderView: View {
                     .padding(.bottom, 20)
                 }
                 .padding(.horizontal, 24)
-                .mindWayBackButton(dismiss: dismiss)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("도서 수정")
-                            .mindWaySemiboldFont(.m2)
-                    }
+            }
+            .mindWayBackButton(dismiss: dismiss)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("도서 수정")
+                        .mindWaySemiboldFont(.m2)
                 }
             }
         }

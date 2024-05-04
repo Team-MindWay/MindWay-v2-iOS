@@ -98,6 +98,9 @@ struct MyPageView: View {
                 MindWayAsset.Icons.edit.swiftUIImage
                 
                 MindWayAsset.Icons.trash.swiftUIImage
+                    .onTapGesture {
+                        <#code#>
+                    }
             }
         }
         .padding(.horizontal, 16)
