@@ -26,7 +26,7 @@ struct TabBarView: View {
                 }
                 .tag(2)
             
-            RecommendBookView()
+            BookRecommendView()
                 .tabItem {
                     Image(selectedTab == 3 ? "book_fill" : "book")
                     Text("도서")

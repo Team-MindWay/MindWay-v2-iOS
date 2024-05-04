@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RecommendBookView: View {
+struct BookRecommendView: View {
     @State private var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
 
@@ -84,8 +84,4 @@ struct RecommendBookView: View {
         .padding(.vertical, 20)
         .padding(.horizontal, 24)
     }
-}
-
-#Preview {
-    RecommendBookView()
 }
