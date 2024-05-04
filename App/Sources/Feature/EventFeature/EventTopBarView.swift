@@ -82,7 +82,7 @@ func detailView(
                     Button {
                         
                     } label: {
-                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
+                        MindWayAsset.Icons.chevronRight.swiftUIImage
                     }
                 }
 
@@ -129,4 +129,8 @@ func noneEvent() -> some View {
         
         Spacer()
     }
+}
+
+#Preview {
+    EventTopBarView()
 }
