@@ -1,11 +1,3 @@
-//
-//  TabBarView.swift
-//  MindWay
-//
-//  Created by 서지완 on 5/1/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import SwiftUI
 
 struct TabBarView: View {
