@@ -26,16 +26,18 @@ struct TabBarView: View {
                 }
                 .tag(3)
             
-            MyPageView()
+            MyPageView(viewModel: MyPageViewModel())
                 .tabItem {
                     Image(selectedTab == 4 ? "profile_fill" : "profile")
                     Text("마이")
                 }
                 .tag(4)
+            
         }
         .accentColor(.black)
-        .padding(.horizontal, 5)
-        
-        
     }
+}
+
+#Preview {
+    TabBarView()
 }

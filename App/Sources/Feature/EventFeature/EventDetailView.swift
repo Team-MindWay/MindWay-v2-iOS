@@ -6,6 +6,18 @@ struct EventDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 0) {
+                Button {
+                    dismiss()
+                }label: {
+                    MindWayAsset.Icons.chevronLeft.swiftUIImage
+                }
+                Spacer()
+                Text("진행 중인 이벤트")
+                    .mindWaySemiboldFont(.m2)
+                    .padding(.trailing, 43)
+                Spacer()
+            }
             MindWayAsset.Images.eventDetailIMG.swiftUIImage
                 .resizable()
                 .cornerRadius(8)
@@ -34,7 +46,11 @@ struct EventDetailView: View {
         }
         .padding(.leading, 24)
         .padding(.top, 20)
-        .navigationTitle("진행 중인 이벤트")
+//        .navigationTitle("진행 중인 이벤트")
         .mindWayBackButton(dismiss: dismiss)
     }
+}
+
+#Preview {
+    EventDetailView()
 }
