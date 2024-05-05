@@ -41,7 +41,7 @@ public extension MindWayButtonStyle {
         let configuration: ButtonStyle.Configuration
             
         var backgroundColor: Color {
-            configuration.isPressed ? Color.mindway(.gray(.g6)) : Color.mindway(.gray(.g3))
+            configuration.isPressed ? Color.mindway(.gray(.g2)) : Color.mindway(.gray(.g1))
         }
         
         public var body: some View {
