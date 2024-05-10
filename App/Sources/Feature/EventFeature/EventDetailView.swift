@@ -9,14 +9,18 @@ struct EventDetailView: View {
             HStack(spacing: 0) {
                 Button {
                     dismiss()
-                }label: {
+                } label: {
                     MindWayAsset.Icons.chevronLeft.swiftUIImage
                 }
+                
                 Spacer()
+                
                 Text("진행 중인 이벤트")
                     .mindWaySemiboldFont(.m2)
                     .padding(.trailing, 43)
+                
                 Spacer()
+                
             }
             MindWayAsset.Images.eventDetailIMG.swiftUIImage
                 .resizable()
@@ -47,7 +51,7 @@ struct EventDetailView: View {
         .padding(.leading, 24)
         .padding(.top, 20)
 //        .navigationTitle("진행 중인 이벤트")
-        .mindWayBackButton(dismiss: dismiss)
+//        .mindWayBackButton(dismiss: dismiss)
     }
 }
 
