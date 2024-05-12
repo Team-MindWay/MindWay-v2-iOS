@@ -67,8 +67,6 @@ struct EventTopBarView: View {
                 EventDetailView()
             }
         }
-        //.navigationBarBackButtonHidden(true)
-        //.navigationBarHidden(true)
     }
 }
 
