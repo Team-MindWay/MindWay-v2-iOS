@@ -52,7 +52,3 @@ struct EventDetailView: View {
         .padding(.top, 20)
     }
 }
-
-#Preview {
-    EventDetailView()
-}
