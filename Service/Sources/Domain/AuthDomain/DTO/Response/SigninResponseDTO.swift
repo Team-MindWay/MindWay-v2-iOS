@@ -1,8 +1,11 @@
-//
-//  SigninResponseDTO.swift
-//  Service
-//
-//  Created by Mac on 5/22/24.
-//
-
 import Foundation
+
+struct SigninResponseDTO: Decodable {
+    let userAuthority: UserAuthorityType
+}
+
+extension SigninResponseDTO {
+    func toDomain() -> UserSignupInfoEntity {
+        UserSignupInfoEntity(authority: userAuthority)
+    }
+}
