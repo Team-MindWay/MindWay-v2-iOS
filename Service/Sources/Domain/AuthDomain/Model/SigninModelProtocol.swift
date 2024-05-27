@@ -1,8 +1,9 @@
-//
-//  SigninModelProtocol.swift
-//  Service
-//
-//  Created by Mac on 5/23/24.
-//
+public protocol SigninStateProtocol {
+    var isError: Bool { get }
+    var isSuccess: Bool { get }
+}
 
-import Foundation
+public protocol SigninActionProtocol: AnyObject {
+    func updateIsError(isError: Bool)
+    func updateIsSuccess(isSuccess: Bool)
+}
