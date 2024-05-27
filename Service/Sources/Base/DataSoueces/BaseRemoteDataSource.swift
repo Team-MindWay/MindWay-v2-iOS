@@ -24,6 +24,10 @@ open class BaseRemoteDataSource<API: MindWayAPI> {
         let response = try await retryingRequest(api)
         return try decoder.decode(dto, from: response.data)
     }
+    
+    public func request(_ api: API) async throws {
+        _ = try await retryingRequest(api)
+    }
 
     private func requestPublisher(_ api: API) async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in
