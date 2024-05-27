@@ -12,7 +12,7 @@ struct AuthRepositoryImpl: AuthRepository {
         self.localAuthDataSource = localAuthDataSource
     }
 
-    func login(code: String) async throws {
+    func login(code: String) async throws -> UserSignupInfoEntity {
         try await remoteAuthDataSource.login(code: code)
     }
 
