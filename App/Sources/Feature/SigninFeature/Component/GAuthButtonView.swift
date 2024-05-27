@@ -5,7 +5,7 @@ import UIKit
 struct GAuthButtonView: UIViewRepresentable {
     private let completion: (String) -> Void
 
-        init(
+    init(
         completion: @escaping (String) -> Void
     ) {
         self.completion = completion
@@ -25,8 +25,8 @@ struct GAuthButtonView: UIViewRepresentable {
             .rootViewController
         else { return gauthButton }
         gauthButton.prepare(
-            clientID: "42cb0e0835dd4367a6298ce9949c47ed5f39618717b2428f8783fff8905629e0",
-            redirectURI: "http://localhost:8080/auth/redirect",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String ?? "",
+            redirectURI: Bundle.main.object(forInfoDictionaryKey: "REDIRECT_URI") as? String ?? "",
             presenting: presentingViewController,
             completion: completion
         )
