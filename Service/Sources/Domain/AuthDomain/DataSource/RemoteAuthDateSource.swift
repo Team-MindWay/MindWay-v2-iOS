@@ -1,8 +1,7 @@
-//
-//  RemoteAuthDateSource.swift
-//  Service
-//
-//  Created by Mac on 5/20/24.
-//
-
 import Foundation
+
+public protocol RemoteAuthDataSource {
+    func login(code: String) async throws -> UserSignupInfoEntity
+    func logout() async throws
+    func refresh() async throws
+}
