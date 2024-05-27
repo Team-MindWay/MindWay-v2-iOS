@@ -1,8 +1,9 @@
-//
-//  UserSignupInfoEntity.swift
-//  Service
-//
-//  Created by Mac on 5/20/24.
-//
-
 import Foundation
+
+public struct UserSignupInfoEntity {
+    public let authority: UserAuthorityType
+
+    public init(authority: UserAuthorityType) {
+        self.authority = authority
+    }
+}
