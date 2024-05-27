@@ -1,17 +1,16 @@
 import Foundation
 
-struct RemoteAuthDataSourceImpl: BaseRemoteDataSource<AuthAPI>, RemoteAuthDateSource {
+final class RemoteAuthDataSourceImpl: BaseRemoteDataSource<AuthAPI>, RemoteAuthDataSource {
     func login(code: String) async throws -> UserSignupInfoEntity {
-        <#code#>
+        try await request(.login(code: code), dto: SigninResponseDTO.self)
+            .toDomain()
     }
     
     func logout() async throws {
-        <#code#>
+        try await request(.logout)
     }
     
     func refresh() async throws {
-        <#code#>
+        try await request(.reissueToken)
     }
-    
-    
 }
