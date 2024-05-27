@@ -1,8 +1,5 @@
-//
-//  LoginUseCase.swift
-//  Service
-//
-//  Created by Mac on 5/16/24.
-//
-
 import Foundation
+
+public protocol LoginUseCase {
+    func execute(code: String) async throws -> UserSignupInfoEntity
+}
