@@ -1,8 +1,5 @@
-//
-//  LogoutUseCase.swift
-//  Service
-//
-//  Created by Mac on 5/16/24.
-//
-
 import Foundation
+
+public protocol LogoutUseCase {
+    func execute() async throws
+}
