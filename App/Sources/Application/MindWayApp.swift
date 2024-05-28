@@ -8,7 +8,7 @@ struct MindWayApp: App {
     var body: some Scene {
         WindowGroup {
             if showMainView {
-                EmptyView()
+                TabBarView(viewModel: MyPageViewModel())
             } else {
                 SplashView()
                     .onAppear {
