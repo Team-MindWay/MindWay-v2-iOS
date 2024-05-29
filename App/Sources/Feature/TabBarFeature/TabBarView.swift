@@ -6,7 +6,6 @@ struct TabBarView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            if viewModel.isShowingBottomSheet == false {
                 MainView()
                     .tabItem {
                         Image(selectedTab == 1 ? "home_fill" : "home")
@@ -34,9 +33,8 @@ struct TabBarView: View {
                         Text("마이")
                     }
                     .tag(4)
-                
-            }
         }
         .accentColor(.black)
     }
 }
+
