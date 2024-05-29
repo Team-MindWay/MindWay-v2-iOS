@@ -40,3 +40,7 @@ struct TabBarView: View {
         .accentColor(.black)
     }
 }
+
+#Preview {
+    TabBarView(viewModel: MyPageViewModel())
+}
