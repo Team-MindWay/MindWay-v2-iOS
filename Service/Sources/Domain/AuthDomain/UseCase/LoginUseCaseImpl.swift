@@ -1,13 +1,13 @@
 import Foundation
 
-struct LoginUseCaseImpl: LoginUseCase {
+public struct LoginUseCaseImpl: LoginUseCase {
     private let authRepository: any AuthRepository
 
-    init(authRepository: any AuthRepository) {
+    public init(authRepository: any AuthRepository) {
         self.authRepository = authRepository
     }
 
-    func execute(code: String) async throws -> UserSignupInfoEntity {
+    public func execute(code: String) async throws -> UserSignupInfoEntity {
         try await authRepository.login(code: code)
     }
 }

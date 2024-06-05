@@ -1,10 +1,10 @@
 import Foundation
 
-struct AuthRepositoryImpl: AuthRepository {
+public struct AuthRepositoryImpl: AuthRepository {
     private let remoteAuthDataSource: any RemoteAuthDataSource
     private let localAuthDataSource: any LocalAuthDataSource
 
-    init(
+    public init(
         remoteAuthDataSource: any RemoteAuthDataSource,
         localAuthDataSource: any LocalAuthDataSource
     ) {
@@ -12,16 +12,16 @@ struct AuthRepositoryImpl: AuthRepository {
         self.localAuthDataSource = localAuthDataSource
     }
 
-    func login(code: String) async throws -> UserSignupInfoEntity {
+    public func login(code: String) async throws -> UserSignupInfoEntity {
         try await remoteAuthDataSource.login(code: code)
     }
 
-    func logout() async throws {
+    public func logout() async throws {
         try await remoteAuthDataSource.logout()
         try await localAuthDataSource.logout()
     }
 
-    func refresh() async throws {
+    public func refresh() async throws {
         try await remoteAuthDataSource.refresh()
     }
 }
