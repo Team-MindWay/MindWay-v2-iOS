@@ -1,9 +1,14 @@
-//
-//  RootComponent.swift
-//  MindWay
-//
-//  Created by Mac on 6/4/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
+import NeedleFoundation
+import SwiftUI
 
-import Foundation
+public protocol RootDependency: Dependency {
+    var signinFactory: any SigninFactory { get }
+}
+
+public final class RootComponent: Component<RootDependency> {
+    public func makeView() -> some View {
+        RootView(
+            signinFactory: self.dependency.signinFactory
+        )
+    }
+}
