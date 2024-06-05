@@ -40,6 +40,7 @@ extension Project {
                     infoPlist: .file(path: Path("Support/Info.plist")),
                     sources: ["Sources/**"],
                     resources: ["Resources/**"],
+                    scripts: [.NeedleShell],
                     dependencies: [
                         .project(target: "ThirdPartyLib", path: Path("../ThirdPartyLib")),
                     ] + dependencies

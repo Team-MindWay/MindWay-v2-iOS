@@ -9,5 +9,6 @@ let project = Project.dynamicFramwork(
             "BASE_URL" : "$(BASE_URL)"
         ]
     ),
-    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone])
+    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+    scripts: [.NeedleShell]
 )
