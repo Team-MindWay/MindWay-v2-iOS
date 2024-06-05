@@ -1,9 +1,25 @@
-//
-//  AppComponent.swift
-//  MindWay
-//
-//  Created by Mac on 6/3/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
+import NeedleFoundation
+import Service
+import SwiftUI
 
-import Foundation
+public final class AppComponent: BootstrapComponent {
+    public func makeRootView() -> some View {
+        rootComponent.makeView()
+    }
+
+    var rootComponent: RootComponent {
+        RootComponent(parent: self)
+    }
+
+    public var keychain: Keychain {
+        shared {
+            KeychainImpl()
+        }
+    }
+}
+
+public extension AppComponent {
+    var signinFactory: any SigninFactory {
+        SigninComponent(parent: self)
+    }
+}
