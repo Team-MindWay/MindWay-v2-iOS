@@ -1,24 +1,23 @@
 import Foundation
 import Service
 
-final class SigninViewModel: ObservableObject {
-    private weak var model: (any SigninActionProtocol)?
+final class SigninViewModel: BaseViewModel {
     private let loginUseCase: any LoginUseCase
     
     init(
-        model: any SigninActionProtocol,
         loginUseCase: any LoginUseCase
     ) {
-        self.model = model
         self.loginUseCase = loginUseCase
     }
     
     func signin(code: String) {
         Task {
             do {
-                let userSignupInfo = try await self.loginUseCase.execute(code: code)
+                let userSigninInfo = try await self.loginUseCase.execute(code: code)
+                print("로그인 성공 \(userSigninInfo.authority)")
             } catch {
-                model?.updateIsError(isError: true)
+                isErrorOccurred = true
+                print("로그인 실패: \(error)")
             }
         }
     }
