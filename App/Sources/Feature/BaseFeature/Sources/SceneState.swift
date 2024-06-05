@@ -1,9 +1,9 @@
-//
-//  SceneState.swift
-//  MindWay
-//
-//  Created by Mac on 6/4/24.
-//  Copyright © 2024 team.mindway. All rights reserved.
-//
-
 import Foundation
+
+public final class SceneState: ObservableObject {
+    @Published public var sceneFlow: SceneFlow
+
+    init(sceneFlow: SceneFlow) {
+        self.sceneFlow = sceneFlow
+    }
+}
