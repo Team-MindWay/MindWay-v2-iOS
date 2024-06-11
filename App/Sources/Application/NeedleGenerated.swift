@@ -17,6 +17,17 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class MainDependency7c6a5b4738b211b8e155Provider: MainDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->AppComponent->MainComponent
+private func factoryc9274e46e78e70f29c54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MainDependency7c6a5b4738b211b8e155Provider()
+}
 private class RootDependency3944cc797a4a88956fb5Provider: RootDependency {
     var signinFactory: any SigninFactory {
         return appComponent.signinFactory
@@ -34,8 +45,8 @@ private class SigninDependencyde06a9d0b22764487733Provider: SigninDependency {
     var loginUseCase: any LoginUseCase {
         return appComponent.loginUseCase
     }
-    var signinFactory: any SigninFactory {
-        return appComponent.signinFactory
+    var mainFactory: any MainFactory {
+        return appComponent.mainFactory
     }
     private let appComponent: AppComponent
     init(appComponent: AppComponent) {
@@ -48,6 +59,11 @@ private func factory2882a056d84a613debccf47b58f8f304c97af4d5(_ component: Needle
 }
 
 #else
+extension MainComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension RootComponent: Registration {
     public func registerItems() {
         keyPathToName[\RootDependency.signinFactory] = "signinFactory-any SigninFactory"
@@ -56,7 +72,7 @@ extension RootComponent: Registration {
 extension SigninComponent: Registration {
     public func registerItems() {
         keyPathToName[\SigninDependency.loginUseCase] = "loginUseCase-any LoginUseCase"
-        keyPathToName[\SigninDependency.signinFactory] = "signinFactory-any SigninFactory"
+        keyPathToName[\SigninDependency.mainFactory] = "mainFactory-any MainFactory"
     }
 }
 extension AppComponent: Registration {
@@ -69,6 +85,7 @@ extension AppComponent: Registration {
         localTable["loginUseCase-any LoginUseCase"] = { [unowned self] in self.loginUseCase as Any }
         localTable["logoutUseCase-any LogoutUseCase"] = { [unowned self] in self.logoutUseCase as Any }
         localTable["signinFactory-any SigninFactory"] = { [unowned self] in self.signinFactory as Any }
+        localTable["mainFactory-any MainFactory"] = { [unowned self] in self.mainFactory as Any }
     }
 }
 
@@ -87,6 +104,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
+    registerProviderFactory("^->AppComponent->MainComponent", factoryc9274e46e78e70f29c54e3b0c44298fc1c149afb)
     registerProviderFactory("^->AppComponent->RootComponent", factory264bfc4d4cb6b0629b40f47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent->SigninComponent", factory2882a056d84a613debccf47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent", factoryEmptyDependencyProvider)

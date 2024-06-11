@@ -4,7 +4,7 @@ import SwiftUI
 
 public protocol SigninDependency: Dependency {
     var loginUseCase: any LoginUseCase { get }
-    var signinFactory: any SigninFactory { get }
+    var mainFactory: any MainFactory { get }
 }
 
 public final class SigninComponent: Component<SigninDependency>, SigninFactory {
@@ -13,7 +13,7 @@ public final class SigninComponent: Component<SigninDependency>, SigninFactory {
             viewModel: .init(
                 loginUseCase: dependency.loginUseCase
             ),
-            signinFactory: dependency.signinFactory
+            mainFactory: dependency.mainFactory
         )
     }
 }
