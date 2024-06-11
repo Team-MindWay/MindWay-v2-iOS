@@ -3,6 +3,7 @@ import SwiftUI
 struct EventTopBarView: View {
     @State private var topNavigationState = false
     @StateObject private var viewmodel = EventViewModel()
+    @State private var detailState = false
     
     var body: some View {
         NavigationView {
@@ -48,7 +49,8 @@ struct EventTopBarView: View {
                             detailView(
                                 eventTitle: viewmodel.eventTitle,
                                 eventDescription: viewmodel.eventDescription,
-                                eventTime: viewmodel.eventTime
+                                eventTime: viewmodel.eventTime,
+                                detailState: $detailState
                             )
                         }
                     }
@@ -61,9 +63,10 @@ struct EventTopBarView: View {
                 
                 Spacer()
             }
+            .fullScreenCover(isPresented: $detailState) {
+                EventDetailView()
+            }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
     }
 }
 
@@ -71,8 +74,10 @@ struct EventTopBarView: View {
 func detailView(
     eventTitle: String,
     eventDescription: String,
-    eventTime: String
+    eventTime: String,
+    detailState: Binding<Bool>
 ) -> some View {
+    
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 0) {
                     Text(eventTitle)
@@ -82,7 +87,10 @@ func detailView(
                     Button {
                         
                     } label: {
-                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
+                        MindWayAsset.Icons.chevronRight.swiftUIImage
+                            .onTapGesture {
+                                detailState.wrappedValue = true
+                            }
                     }
                 }
 

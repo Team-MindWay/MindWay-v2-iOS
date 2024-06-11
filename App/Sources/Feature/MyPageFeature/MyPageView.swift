@@ -85,6 +85,7 @@ struct MyPageView: View {
                 }
             }
             .padding(.horizontal, 24)
+            .toolbar(.hidden, for: .tabBar)
         }
         .fullScreenCover(isPresented: $viewModel.isNavigateMindWayIntroducePage) {
             MindWayIntroduceView()

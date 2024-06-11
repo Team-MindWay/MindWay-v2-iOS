@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RecommendBookView: View {
+struct BookRecommendView: View {
     @State private var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
 
@@ -37,10 +37,9 @@ struct RecommendBookView: View {
                             .mindWaySemiboldFont(.m1)
 
                         if navigateTopBarStatus == true {
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.mindway(.main(.main)))
                                 .frame(width: 80, height: 2)
-                                .cornerRadius(8)
                         }
                     }
                 }
