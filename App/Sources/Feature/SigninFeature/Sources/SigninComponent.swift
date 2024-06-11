@@ -2,12 +2,12 @@ import NeedleFoundation
 import Service
 import SwiftUI
 
-public protocol LoginDependency: Dependency {
+public protocol SigninDependency: Dependency {
     var loginUseCase: any LoginUseCase { get }
     var signinFactory: any SigninFactory { get }
 }
 
-public final class SigninComponent: Component<LoginDependency>, SigninFactory {
+public final class SigninComponent: Component<SigninDependency>, SigninFactory {
     public func makeView() -> some View {
         SigninView(
             viewModel: .init(

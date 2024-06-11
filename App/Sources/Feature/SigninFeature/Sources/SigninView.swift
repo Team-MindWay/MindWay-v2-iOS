@@ -4,6 +4,7 @@ import Service
 struct SigninView: View {
     @StateObject var viewModel: SigninViewModel
     private let signinFactory: any SigninFactory
+    @EnvironmentObject var sceneState: SceneState
     
     init(
         viewModel: SigninViewModel,
@@ -12,7 +13,6 @@ struct SigninView: View {
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.signinFactory = signinFactory
-
     }
     
     var body: some View {

@@ -4,11 +4,13 @@ import Service
 @main
 struct MindWayApp: App {
     @State private var showMainView = false
-    
+    @StateObject private var sceneState = SceneState(sceneFlow: .login)
+
     var body: some Scene {
         WindowGroup {
             if showMainView {
-                EmptyView()
+                AppComponent().makeRootView()
+                    .environmentObject(sceneState)
             } else {
                 SplashView()
                     .onAppear {
