@@ -21,7 +21,7 @@ extension RefreshAPI: MindWayAPI {
     public var method: Moya.Method {
         switch self {
         case .reissueToken:
-            return .put
+            return .patch
         }
     }
 

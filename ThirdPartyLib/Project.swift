@@ -6,6 +6,8 @@ let project = Project.dynamicFramwork(
     packages: [],
     deploymentTarget: .iOS(targetVersion: "16.0", devices: [.iphone]),
     dependencies: [
-        .SPM.Moya
+        .SPM.Moya,
+        .SPM.GAuthSignin,
+        .SPM.NeedleFoundation
     ]
 )

@@ -11,7 +11,25 @@ extension Project {
         return Project(
             name: name,
             organizationName: publicOrganizationName,
-            settings: nil,
+            settings: .settings(
+                configurations: isCI ?
+                    [
+                        .debug(name: .debug),
+                        .release(name: .release)
+                    ] :
+                    [
+                        .debug(
+                            name: .debug,
+                            xcconfig:
+                            .relativeToXCConfig(type: .debug, name: name)
+                        ),
+                        .release(
+                            name: .release,
+                            xcconfig:
+                            .relativeToXCConfig(type: .release, name: name)
+                        )
+                    ]
+            ),
             targets: [
                 Target(
                     name: name,
@@ -22,6 +40,7 @@ extension Project {
                     infoPlist: .file(path: Path("Support/Info.plist")),
                     sources: ["Sources/**"],
                     resources: ["Resources/**"],
+                    scripts: [.NeedleShell],
                     dependencies: [
                         .project(target: "ThirdPartyLib", path: Path("../ThirdPartyLib")),
                     ] + dependencies
