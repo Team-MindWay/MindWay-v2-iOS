@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol RemoteRankDataSource {
-    func fetchRankInfo() async throws
+    func fetchRankInfo() async throws -> [RankInfoEntity]
 }
