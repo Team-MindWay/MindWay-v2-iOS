@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol AdminRepository {
-    func fetchRank() async throws
+public protocol RankRepository {
+    func fetchRankInfo() async throws -> [RankInfoEntity]
 }
