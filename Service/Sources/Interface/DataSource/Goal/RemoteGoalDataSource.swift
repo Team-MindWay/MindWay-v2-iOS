@@ -1,8 +1,6 @@
-//
-//  RemoteGoalDataSource.swift
-//  Service
-//
-//  Created by 이승화 on 6/14/24.
-//
-
 import Foundation
+
+public protocol RemoteGoalDataSource {
+    func settingGoal() async throws
+    func fetchGoalInfo() async throws -> GoalInfoEntity
+}
