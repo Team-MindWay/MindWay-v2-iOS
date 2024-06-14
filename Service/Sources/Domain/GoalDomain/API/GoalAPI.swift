@@ -7,7 +7,7 @@ public enum GoalAPI {
 }
 
 extension GoalAPI: MindWayAPI {
-    public typealias ErrorType = RankDomainError
+    public typealias ErrorType = GoalDomainError
     
     public var domain: MindWayDomain {
         .goal
@@ -47,7 +47,12 @@ extension GoalAPI: MindWayAPI {
     
     public var errorMap: [Int: ErrorType] {
         switch self {
-        case .rank:
+        case .settingGoal:
+            return [
+                400: .badRequest,
+                401: .unauthorized
+            ]
+        case .fetchGoal:
             return [
                 401: .unauthorized
             ]
