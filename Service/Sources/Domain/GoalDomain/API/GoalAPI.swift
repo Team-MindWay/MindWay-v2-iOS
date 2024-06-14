@@ -2,7 +2,7 @@ import Foundation
 import Moya
 
 public enum GoalAPI {
-    case settingGoal
+    case settingGoal(SettingGoalRequestDTO)
     case fetchGoal
 }
 
@@ -40,7 +40,7 @@ extension GoalAPI: MindWayAPI {
     
     public var jwtTokenType: JwtTokenType {
         switch self {
-        case .rank:
+        case .settingGoal, .fetchGoal:
             return .accessToken
         }
     }
