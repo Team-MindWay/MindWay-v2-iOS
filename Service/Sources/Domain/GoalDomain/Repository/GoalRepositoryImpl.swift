@@ -9,8 +9,8 @@ public struct GoalRepositoryImpl: GoalRepository {
         self.remoteGoalDataSource = remoteGoalDataSource
     }
     
-    public func settingGoal() async throws {
-        try await remoteGoalDataSource.settingGoal()
+    public func settingGoal(req: SettingGoalRequestDTO) async throws {
+        try await remoteGoalDataSource.settingGoal(req: req)
     }
     
     public func fetchGoalInfo() async throws -> GoalInfoEntity {
