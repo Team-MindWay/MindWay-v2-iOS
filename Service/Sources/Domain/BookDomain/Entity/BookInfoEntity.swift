@@ -4,13 +4,13 @@ public struct BookInfoEntity: Equatable {
     public let id: Int
     public let title: String
     public let plot: String
-    public let created_at: String
+    public let created_at: Date
 
     public init(
         id: Int,
         title: String,
         plot: String,
-        created_at: String
+        created_at: Date
 
     ) {
         self.id = id
