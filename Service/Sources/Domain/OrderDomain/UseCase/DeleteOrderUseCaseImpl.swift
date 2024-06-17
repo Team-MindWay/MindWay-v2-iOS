@@ -1,6 +1,6 @@
 import Foundation
 
-public struct DeleteOrderUseCaseImpl: DeleteOrderkUseCase {
+public struct DeleteOrderUseCaseImpl: DeleteOrderUseCase {
     private let orderRepository: any OrderRepository
     
     init(
