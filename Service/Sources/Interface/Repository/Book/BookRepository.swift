@@ -3,7 +3,7 @@ import Foundation
 public protocol BookRepository {
     func writeBook(req: BookInfoRequestDTO) async throws
     func fetchBookList() async throws -> [BookInfoEntity]
-    func modifyBook(req: BookInfoRequestDTO) async throws
-    func deleteBook() async throws
-    func fetchBookDetail() async throws -> BookDetailInfoEntity
+    func modifyBook(book_id: Int, req: BookInfoRequestDTO) async throws
+    func deleteBook(book_id: Int) async throws
+    func fetchBookDetail(book_id: Int) async throws -> BookDetailInfoEntity
 }

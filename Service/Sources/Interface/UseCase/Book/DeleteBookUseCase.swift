@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol DeleteBookUseCase {
-    func execute() async throws
+    func execute(book_id: Int) async throws
 }
