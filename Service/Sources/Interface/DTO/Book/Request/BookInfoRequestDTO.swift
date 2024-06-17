@@ -1,6 +1,6 @@
 import Foundation
 
-public struct WriteBookRequestDTO: Encodable {
+public struct BookInfoRequestDTO: Encodable {
     public let title: String
     public let plot: String
 

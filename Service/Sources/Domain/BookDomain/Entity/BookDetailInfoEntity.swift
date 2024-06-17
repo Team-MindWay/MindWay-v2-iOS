@@ -1,6 +1,6 @@
 import Foundation
 
-public struct BookDetialInfoEntity: Equatable {
+public struct BookDetailInfoEntity: Equatable {
     public let title: String
     public let plot: String
 

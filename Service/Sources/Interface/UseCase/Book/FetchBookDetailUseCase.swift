@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol FetchBookDetailUseCase {
-    func execute() async throws -> [BookDetialInfoEntity]
+    func execute() async throws -> BookDetailInfoEntity
 }

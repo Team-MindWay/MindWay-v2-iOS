@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol ModifyBookUseCase {
-    func execute() async throws
+    func execute(req: BookInfoRequestDTO) async throws
 }
