@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol SettingGoalUseCase {
-    func execute() async throws
+    func execute(req: SettingGoalRequestDTO) async throws
 }

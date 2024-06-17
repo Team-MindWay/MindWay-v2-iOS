@@ -7,7 +7,6 @@ public struct BookDetialInfoEntity: Equatable {
     public init(
         title: String,
         plot: String
-
     ) {
         self.title = title
         self.plot = plot

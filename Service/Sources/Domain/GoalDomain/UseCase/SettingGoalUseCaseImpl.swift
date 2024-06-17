@@ -7,7 +7,7 @@ public struct SettingGoalUseCaseImpl: SettingGoalUseCase {
         self.goalRepository = goalRepository
     }
     
-    public func execute() async throws {
-        try await goalRepository.settingGoal()
+    public func execute(req: SettingGoalRequestDTO) async throws {
+        try await goalRepository.settingGoal(req: req)
     }
 }
