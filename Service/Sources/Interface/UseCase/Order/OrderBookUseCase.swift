@@ -1,8 +1,5 @@
-//
-//  OrderBookUseCase.swift
-//  Service
-//
-//  Created by Mac on 6/17/24.
-//
-
 import Foundation
+
+public protocol OrderBookUseCase {
+    func execute(req: OrderBookRequestDTO) async throws
+}
