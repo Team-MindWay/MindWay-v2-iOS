@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol UpdateOrderedBookUseCase {
+public protocol UpdateOrderUseCase {
     func execute(OrderID: String, req: UpdateBookRequestDTO) async throws
 }
