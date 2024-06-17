@@ -9,7 +9,7 @@ public struct DeleteOrderUseCaseImpl: DeleteOrderUseCase {
         self.orderRepository = orderRepository
     }
     
-    public func execute(OrderID: String) async throws {
-        try await orderRepository.deleteOrder(OrderID: OrderID)
+    public func execute(orderID: String) async throws {
+        try await orderRepository.deleteOrder(orderID: orderID)
     }
 }

@@ -13,11 +13,11 @@ public struct OrderRepositoryImpl: OrderRepository {
         try await remoteOrderDataSource.orderBook(req: req)
     }
     
-    public func deleteOrder(OrderID: String) async throws {
-        try await remoteOrderDataSource.deleteOrder(OrderID: OrderID)
+    public func deleteOrder(orderID: String) async throws {
+        try await remoteOrderDataSource.deleteOrder(orderID: orderID)
     }
     
-    public func updateOrder(OrderID: String, req: UpdateBookRequestDTO) async throws {
-        try await remoteOrderDataSource.updateOrder(OrderID: OrderID, req: req)
+    public func updateOrder(orderID: String, req: UpdateBookRequestDTO) async throws {
+        try await remoteOrderDataSource.updateOrder(orderID: orderID, req: req)
     }
 }

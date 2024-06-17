@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol DeleteOrderUseCase {
-    func execute(OrderID: String) async throws
+    func execute(orderID: String) async throws
 }

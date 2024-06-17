@@ -9,7 +9,7 @@ public struct UpdateOrderUseCaseImpl: UpdateOrderUseCase {
         self.orderRepository = orderRepository
     }
     
-    public func execute(OrderID: String, req: UpdateBookRequestDTO) async throws {
-        try await orderRepository.updateOrder(OrderID: OrderID, req: req)
+    public func execute(orderID: String, req: UpdateBookRequestDTO) async throws {
+        try await orderRepository.updateOrder(orderID: orderID, req: req)
     }
 }

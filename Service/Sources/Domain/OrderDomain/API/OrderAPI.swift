@@ -48,7 +48,7 @@ extension OrderAPI: MindWayAPI {
         case let .updateOrder(_, req):
             return .requestJSONEncodable(req)
             
-        case .deleteOrder(orderID: let orderID):
+        case let .deleteOrder(orderID: orderID):
             return .requestPlain
         }
     }
