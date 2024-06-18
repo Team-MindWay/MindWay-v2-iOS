@@ -11,7 +11,6 @@ public struct BookInfoEntity: Equatable {
         title: String,
         plot: String,
         created_at: Date
-
     ) {
         self.id = id
         self.title = title
