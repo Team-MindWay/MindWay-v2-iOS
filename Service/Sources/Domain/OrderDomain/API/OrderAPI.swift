@@ -20,10 +20,10 @@ extension OrderAPI: MindWayAPI {
             return ""
             
         case let .updateOrder(orderID, _):
-            return "\(orderID)"
+            return "/\(orderID)"
             
         case let .deleteOrder(orderID):
-            return "\(orderID)"
+            return "/\(orderID)"
         }
     }
     
@@ -48,7 +48,7 @@ extension OrderAPI: MindWayAPI {
         case let .updateOrder(_, req):
             return .requestJSONEncodable(req)
             
-        case let .deleteOrder(orderID: orderID):
+        case .deleteOrder:
             return .requestPlain
         }
     }
