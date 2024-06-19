@@ -19,7 +19,7 @@ extension EventAPI: MindWayAPI {
         case .eventList:
             return ""
         case let .eventDetail(eventID):
-            return "\(eventID)"
+            return "/\(eventID)"
         case .eventDate:
             return "/date"
         }
