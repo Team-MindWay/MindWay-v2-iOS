@@ -7,7 +7,7 @@ public struct FetchBookDetailUseCaseImpl: FetchBookDetailUseCase {
         self.bookRepository = bookRepository
     }
     
-    public func execute() async throws -> BookDetailInfoEntity {
-        try await bookRepository.fetchBookDetail()
+    public func execute(book_id: Int) async throws -> BookDetailInfoEntity {
+        try await bookRepository.fetchBookDetail(book_id: book_id)
     }
 }

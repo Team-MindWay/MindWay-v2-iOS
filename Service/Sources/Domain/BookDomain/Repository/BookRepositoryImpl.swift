@@ -17,15 +17,15 @@ public struct BookRepositoryImpl: BookRepository {
         try await remoteBookDataSource.fetchBookList()
     }
     
-    public func modifyBook(req: BookInfoRequestDTO) async throws {
-        try await remoteBookDataSource.modifyBook(req: req)
+    public func modifyBook(book_id: Int, req: BookInfoRequestDTO) async throws {
+        try await remoteBookDataSource.modifyBook(book_id: book_id, req: req)
     }
     
-    public func deleteBook() async throws {
-        try await remoteBookDataSource.deleteBook()
+    public func deleteBook(book_id: Int) async throws {
+        try await remoteBookDataSource.deleteBook(book_id: book_id)
     }
     
-    public func fetchBookDetail() async throws -> BookDetailInfoEntity {
-        try await remoteBookDataSource.fetchBookDetail()
+    public func fetchBookDetail(book_id: Int) async throws -> BookDetailInfoEntity {
+        try await remoteBookDataSource.fetchBookDetail(book_id: book_id)
     }
 }

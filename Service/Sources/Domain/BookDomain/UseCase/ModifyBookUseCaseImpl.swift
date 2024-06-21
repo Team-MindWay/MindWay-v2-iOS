@@ -7,7 +7,7 @@ public struct ModifyBookUseCaseImpl: ModifyBookUseCase {
         self.bookRepository = bookRepository
     }
     
-    public func execute(req: BookInfoRequestDTO) async throws {
-        try await bookRepository.modifyBook(req: req)
+    public func execute(book_id: Int, req: BookInfoRequestDTO) async throws {
+        try await bookRepository.modifyBook(book_id: book_id, req: req)
     }
 }

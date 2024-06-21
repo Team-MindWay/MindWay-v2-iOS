@@ -14,8 +14,8 @@ public struct FetchBookDetailInfoResponseDTO: Decodable {
 }
 
 extension FetchBookDetailInfoResponseDTO {
-    func toDomain() -> BookDetialInfoEntity {
-        BookDetialInfoEntity(
+    func toDomain() -> BookDetailInfoEntity {
+        BookDetailInfoEntity(
             title: title,
             plot: plot
         )
