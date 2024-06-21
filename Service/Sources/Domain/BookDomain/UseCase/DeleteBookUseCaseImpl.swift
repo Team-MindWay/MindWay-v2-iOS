@@ -7,7 +7,7 @@ public struct DeleteBookUseCaseImpl: DeleteBookUseCase {
         self.bookRepository = bookRepository
     }
     
-    public func execute() async throws {
-        try await bookRepository.deleteBook()
+    public func execute(book_id: Int) async throws {
+        try await bookRepository.deleteBook(book_id: book_id)
     }
 }

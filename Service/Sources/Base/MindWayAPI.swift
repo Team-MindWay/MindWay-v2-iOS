@@ -37,6 +37,7 @@ public enum MindWayDomain: String {
     case order
     case admin
     case rank
+    case notice
 }
 
 extension MindWayDomain {
