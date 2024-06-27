@@ -9,6 +9,6 @@ public struct FetchEventDetailUseCaseImpl: FetchEventDetailUseCase {
     }
     
     public func execute() async throws -> EventDetailEntity {
-        try await eventRepository.fetchEventDetail()
+        try await eventRepository.fetchEventDetail(eventID: String)
     }
 }

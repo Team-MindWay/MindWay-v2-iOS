@@ -13,8 +13,8 @@ public struct EventRepositoryImpl: EventRepository {
         try await remoteEventDataSource.fetchEventInfo()
     }
     
-    public func fetchEventDetail() async throws -> EventDetailEntity {
-        try await remoteEventDataSource.fetchEventDetail()
+    public func fetchEventDetail(eventID: String) async throws -> EventDetailEntity {
+        try await remoteEventDataSource.fetchEventDetail(eventID: String)
     }
     
     public func fetchEventDate() async throws -> [EventInfoDateEntity] {

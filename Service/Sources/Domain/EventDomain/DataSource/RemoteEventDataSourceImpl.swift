@@ -6,7 +6,7 @@ public final class RemoteEventDataSourceImpl: BaseRemoteDataSource<EventAPI>, Re
             .toDomain()
     }
     
-    public func fetchEventDetail() async throws -> EventDetailEntity {
+    public func fetchEventDetail(eventID: String) async throws -> EventDetailEntity {
         try await request(.eventDetail(eventID: ""), dto: FetchEventDetailResponseDTO.self)
             .toDomain()
     }

@@ -1,6 +1,6 @@
 import Foundation
 
 public protocol FetchEventDetailUseCase {
-    func execute() async throws -> EventDetailEntity
+    func execute(eventID: String) async throws -> EventDetailEntity
 }
 
