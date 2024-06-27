@@ -33,6 +33,7 @@ extension FetchEventDetailResponseDTO {
             content: content,
             img_url: img_url,
             creted_at: creted_at,
-            ended_at: ended_at)
+            ended_at: ended_at
+            )
     }
 }
