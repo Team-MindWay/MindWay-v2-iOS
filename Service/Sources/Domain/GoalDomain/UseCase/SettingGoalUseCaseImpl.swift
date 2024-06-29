@@ -11,3 +11,4 @@ public struct SettingGoalUseCaseImpl: SettingGoalUseCase {
         try await goalRepository.settingGoal(req: req)
     }
 }
+
