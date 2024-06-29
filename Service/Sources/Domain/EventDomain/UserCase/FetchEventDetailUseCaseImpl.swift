@@ -8,7 +8,7 @@ public struct FetchEventDetailUseCaseImpl: FetchEventDetailUseCase {
         self.eventRepository = eventRepository
     }
     
-    public func execute() async throws -> EventDetailEntity {
-        try await eventRepository.fetchEventDetail(eventID: String)
+    public func execute(eventID: String) async throws -> EventDetailEntity {
+        try await eventRepository.fetchEventDetail(eventID: eventID)
     }
 }
