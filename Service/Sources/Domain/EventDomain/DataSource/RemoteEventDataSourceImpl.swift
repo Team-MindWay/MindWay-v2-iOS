@@ -10,9 +10,4 @@ public final class RemoteEventDataSourceImpl: BaseRemoteDataSource<EventAPI>, Re
         try await request(.eventDetail(eventID: ""), dto: FetchEventDetailResponseDTO.self)
             .toDomain()
     }
-    
-    public func fetchEventDate() async throws -> [EventInfoDateEntity] {
-        try await request(.eventDate, dto: FetchEventDateResponseDTO.self)
-            .toDomain()
-    }
 }
