@@ -1,13 +1,13 @@
 import Foundation
 
 public struct MyBookListEntity: Equatable {
-    public let id: UUID
+    public let id: Int
     public let title: String
     public let author: String
     public let book_url: String
 
     public init(
-        id: UUID,
+        id: Int,
         title: String,
         author: String,
         book_url: String

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct EventDetailEntity: Equatable {
-    public let id: UUID
+    public let id: Int
     public let title: String
     public let content: String
     public let img_url: String
@@ -9,7 +9,7 @@ public struct EventDetailEntity: Equatable {
     public let ended_at: String
 
     public init(
-        id: UUID,
+        id: Int,
         title: String,
         content: String,
         img_url: String,
