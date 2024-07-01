@@ -1,7 +1,6 @@
 import Foundation
 
 public struct FetchEventDetailUseCaseImpl: FetchEventDetailUseCase {
-    
     private let eventRepository: any EventRepository
 
     public init(eventRepository: any EventRepository) {

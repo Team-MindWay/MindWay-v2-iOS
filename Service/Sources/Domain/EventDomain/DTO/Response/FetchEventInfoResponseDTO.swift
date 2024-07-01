@@ -11,7 +11,7 @@ public struct FetchEventInfoResponseDTO: Decodable {
 }
 
 public struct EventInfoResponseDTO: Decodable {
-    public let id: UUID
+    public let id: Int
     public let title: String
     public let content: String
     public let img_url: String
