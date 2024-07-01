@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol RemoteRecommendDataSource {
-    func fetchRecommend(param: String) async throws -> [RecommendBookEntity]
+    func fetchRecommend(params: String) async throws -> RecommendBookEntity
 }
