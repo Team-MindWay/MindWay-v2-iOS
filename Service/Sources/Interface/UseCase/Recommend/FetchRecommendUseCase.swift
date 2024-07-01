@@ -1,6 +1,6 @@
 import Foundation
 
 public protocol FetchRecommendUseCase {
-    func execute() async throws -> RecommendBookEntity
+    func execute(params: String) async throws -> RecommendBookEntity
 }
 
