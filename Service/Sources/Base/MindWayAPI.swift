@@ -35,7 +35,7 @@ public enum MindWayDomain: String {
     case my
     case goal
     case order
-    case admin
+    case recommend
     case rank
     case notice
 }
