@@ -19,7 +19,7 @@ public struct EventInfoResponseDTO: Decodable {
     public let ended_at: String
 
     public init(
-        id: UUID,
+        id: Int,
         title: String,
         content: String,
         img_url: String,
