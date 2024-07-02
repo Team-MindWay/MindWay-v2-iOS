@@ -2,7 +2,7 @@ import Foundation
 import Moya
 
 public enum RecommendAPI {
-    case fetchRecommendBook(params: String)
+    case fetchRecommendBook(params: RecommendEnum)
 }
 
 extension RecommendAPI: MindWayAPI {
@@ -28,8 +28,10 @@ extension RecommendAPI: MindWayAPI {
     
     public var task: Moya.Task {
         switch self {
-        case .fetchRecommendBook:
-            return .requestPlain
+        case let .fetchRecommendBook(params):
+            return .requestParameters(parameters: [
+                           "params": params
+                       ], encoding: URLEncoding.queryString)
         }
     }
     
