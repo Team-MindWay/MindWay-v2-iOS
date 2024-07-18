@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BookRecommendView: View {
+struct RecommendBookView: View {
     @State private var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
 

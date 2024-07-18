@@ -4,6 +4,12 @@ struct MyPageView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: MyPageViewModel
     
+    init(
+        viewModel: MyPageViewModel
+    ) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
         ZStack {
             NavigationView {
