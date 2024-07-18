@@ -7,7 +7,7 @@ public struct FetchRecommendUseCaseImpl: FetchRecommendUseCase {
         self.recommendRepository = recommendRepository
     }
     
-    public func execute(params: String) async throws -> RecommendBookEntity {
+    public func execute(params: RecommendEnum) async throws -> RecommendBookEntity {
         try await recommendRepository.fetchRecommend(params: params)
     }
 }

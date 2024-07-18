@@ -9,7 +9,7 @@ public struct RecommendBookRepositoryImpl: RecommendRepository {
         self.remoteRecommendDataSource = remoteRecommendDataSource
     }
     
-    public func fetchRecommend(params: String) async throws -> RecommendBookEntity {
+    public func fetchRecommend(params: RecommendEnum) async throws -> RecommendBookEntity {
         try await remoteRecommendDataSource.fetchRecommend(params: params)
     }
 }
