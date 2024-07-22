@@ -81,7 +81,3 @@ struct RecommendBookView: View {
         }
     }
 }
-
-#Preview {
-    RecommendBookView(navigateTopBarStatus: false, isBookOrder: false)
-}
