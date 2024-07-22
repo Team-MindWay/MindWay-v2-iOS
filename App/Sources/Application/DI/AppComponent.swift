@@ -26,4 +26,16 @@ public extension AppComponent {
     var mainFactory: any MainFactory {
         MainComponent(parent: self)
     }
+    
+    var tabBarFactory: any TabBarFactory {
+        TabBarComponent(parent: self)
+    }
+    
+    var eventFactor: any EventFactory {
+        EventComponent(parent: self)
+    }
+    
+    var myPageFactory: any MyPageFactory {
+        MyPageComponent(parent: self)
+    }
 }
