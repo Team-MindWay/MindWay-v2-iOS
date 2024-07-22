@@ -3,7 +3,7 @@ import Foundation
 public struct UpdateOrderUseCaseImpl: UpdateOrderUseCase {
     private let orderRepository: any OrderRepository
     
-    init(
+    public init(
         orderRepository: any OrderRepository
     ) {
         self.orderRepository = orderRepository

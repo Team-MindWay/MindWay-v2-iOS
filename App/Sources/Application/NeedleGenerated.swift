@@ -29,6 +29,10 @@ private func factoryc9274e46e78e70f29c54e3b0c44298fc1c149afb(_ component: Needle
     return MainDependency7c6a5b4738b211b8e155Provider()
 }
 private class RootDependency3944cc797a4a88956fb5Provider: RootDependency {
+    var tabBarFactory: any TabBarFactory {
+        return appComponent.tabBarFactory
+    }
+    
     var signinFactory: any SigninFactory {
         return appComponent.signinFactory
     }

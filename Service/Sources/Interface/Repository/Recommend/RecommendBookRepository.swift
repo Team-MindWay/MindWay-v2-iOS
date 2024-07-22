@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol RecommendRepository {
+public protocol RecommendBookRepository {
     func fetchRecommend(params: RecommendEnum) async throws -> RecommendBookEntity
 }
