@@ -21,10 +21,15 @@ struct SigninView: View {
             
             GAuthButtonView { code in
                 viewModel.signin(code: code)
+                
             }
             .padding(.horizontal, 24)
             .frame(height: 50)
             .padding(.bottom, 16)
+            .onChange(of: viewModel.isSuccessSignin) { newValue in
+                guard newValue else { return }
+                sceneState.sceneFlow = .main
+            }
         }
     }
 }

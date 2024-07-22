@@ -15,7 +15,7 @@ struct GAuthButtonView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> some UIView {
         let gauthButton = GAuthButton(
-                        auth: .signup,
+                        auth: .signin,
                         color: .outline,
                         rounded: .default
                 )
