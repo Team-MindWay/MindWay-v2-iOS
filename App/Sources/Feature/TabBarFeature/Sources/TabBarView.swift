@@ -27,6 +27,7 @@ struct TabBarView: View {
                 .tag(TabFlow.home)
                 .tabItem {
                     Image(selection == .home ? "home_fill" : "home")
+                    
                     Text("홈")
                 }
             
@@ -35,6 +36,7 @@ struct TabBarView: View {
                 .tag(TabFlow.event)
                 .tabItem {
                     Image(selection == .event ? "heart_fill" : "heart")
+                    
                     Text("이벤트")
                 }
             
@@ -43,6 +45,7 @@ struct TabBarView: View {
                 .tag(TabFlow.book)
                 .tabItem {
                     Image(selection == .book ? "book_fill" : "book")
+                    
                     Text("도서")
                 }
             
@@ -51,6 +54,7 @@ struct TabBarView: View {
                 .tag(TabFlow.my)
                 .tabItem {
                     Image(selection == .my ? "profile_fill" : "profile")
+                    
                     Text("마이")
                 }
         }
