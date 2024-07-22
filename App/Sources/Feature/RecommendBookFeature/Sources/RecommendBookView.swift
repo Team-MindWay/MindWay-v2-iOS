@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecommendBookView: View {
-    @State private var navigateTopBarStatus: Bool = false
+    @State var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
 
     var body: some View {
@@ -18,10 +18,9 @@ struct RecommendBookView: View {
                             .mindWaySemiboldFont(.m1)
 
                         if navigateTopBarStatus == false {
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.mindway(.main(.main)))
                                 .frame(width: 80, height: 2)
-                                .cornerRadius(8)
                         }
                     }
                 }
@@ -56,6 +55,7 @@ struct RecommendBookView: View {
                         BookOrderView()
                     }
             }
+            .padding(.horizontal, 24)
 
             TabView(selection: $navigateTopBarStatus) {
                 ScrollView(showsIndicators: false) {
@@ -78,9 +78,10 @@ struct RecommendBookView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .padding(.vertical, 28)
-
         }
-        .padding(.vertical, 20)
-        .padding(.horizontal, 24)
     }
+}
+
+#Preview {
+    RecommendBookView(navigateTopBarStatus: false, isBookOrder: false)
 }

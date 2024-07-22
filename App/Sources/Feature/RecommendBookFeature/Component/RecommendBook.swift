@@ -23,5 +23,6 @@ struct RecommendBook: View {
         .background(Color.mindway(.white(.white)))
         .cornerRadius(8)
         .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 0)
+        .padding(.horizontal, 24)
     }
 }

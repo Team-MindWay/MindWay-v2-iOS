@@ -20,6 +20,7 @@ struct RootView: View {
                 signinFactory.makeView()
                     .eraseToAnyView()
                     .environmentObject(sceneState)
+                
             case .main:
                 tabBarFactory.makeView()
                     .eraseToAnyView()
