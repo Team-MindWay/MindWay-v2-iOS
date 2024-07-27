@@ -92,9 +92,6 @@ private class SigninDependencyde06a9d0b22764487733Provider: SigninDependency {
     var loginUseCase: any LoginUseCase {
         return appComponent.loginUseCase
     }
-    var mainFactory: any MainFactory {
-        return appComponent.mainFactory
-    }
     private let appComponent: AppComponent
     init(appComponent: AppComponent) {
         self.appComponent = appComponent
@@ -149,7 +146,6 @@ extension RootComponent: Registration {
 extension SigninComponent: Registration {
     public func registerItems() {
         keyPathToName[\SigninDependency.loginUseCase] = "loginUseCase-any LoginUseCase"
-        keyPathToName[\SigninDependency.mainFactory] = "mainFactory-any MainFactory"
     }
 }
 extension RecommendBookComponent: Registration {

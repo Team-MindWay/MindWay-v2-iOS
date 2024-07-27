@@ -14,11 +14,10 @@ final class SigninViewModel: BaseViewModel {
     func signin(code: String) {
         Task {
             do {
-                let userSigninInfo = try await self.loginUseCase.execute(code: code)
+                try await self.loginUseCase.execute(code: code)
                 print("로그인 성공")
                 isSuccessSignin = true
             } catch {
-                isErrorOccurred = true
                 print("로그인 실패: \(error)")
             }
         }

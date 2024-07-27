@@ -3,7 +3,7 @@ import SwiftUI
 struct RecommendBookView: View {
     @State var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
-
+    
     var body: some View {
         VStack {
             HStack(spacing: 20) {

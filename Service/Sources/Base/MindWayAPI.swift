@@ -42,7 +42,7 @@ public enum MindWayDomain: String {
 
 extension MindWayDomain {
     var asURLString: String {
-        "/\(self.rawValue)"
+        "\(self.rawValue)"
     }
 }
 

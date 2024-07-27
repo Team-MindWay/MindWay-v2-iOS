@@ -9,4 +9,3 @@ public final class RecommendBookComponent: Component<RecommendBookDependency>, R
         RecommendBookView()
     }
 }
-

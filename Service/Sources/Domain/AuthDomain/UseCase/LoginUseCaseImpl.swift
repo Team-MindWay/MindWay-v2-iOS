@@ -7,7 +7,7 @@ public struct LoginUseCaseImpl: LoginUseCase {
         self.authRepository = authRepository
     }
 
-    public func execute(code: String) async throws -> UserSignupInfoEntity {
+    public func execute(code: String) async throws {
         try await authRepository.login(code: code)
     }
 }
