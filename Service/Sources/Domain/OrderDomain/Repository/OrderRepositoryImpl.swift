@@ -3,7 +3,7 @@ import Foundation
 public struct OrderRepositoryImpl: OrderRepository {
     private let remoteOrderDataSource: RemoteOrderDataSource
     
-    init(
+    public init(
         remoteOrderDataSource: RemoteOrderDataSource
     ) {
         self.remoteOrderDataSource = remoteOrderDataSource

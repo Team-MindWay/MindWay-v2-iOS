@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RecommendBookRepositoryImpl: RecommendRepository {
+public struct RecommendBookRepositoryImpl: RecommendBookRepository {
     private let remoteRecommendDataSource: any RemoteRecommendDataSource
 
     public init(

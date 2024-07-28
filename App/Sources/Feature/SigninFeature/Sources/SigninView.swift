@@ -3,15 +3,12 @@ import Service
 
 struct SigninView: View {
     @StateObject var viewModel: SigninViewModel
-    private let mainFactory: any MainFactory
     @EnvironmentObject var sceneState: SceneState
     
     init(
-        viewModel: SigninViewModel,
-        mainFactory: any MainFactory
+        viewModel: SigninViewModel
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        self.mainFactory = mainFactory
     }
     
     var body: some View {
@@ -25,6 +22,10 @@ struct SigninView: View {
             .padding(.horizontal, 24)
             .frame(height: 50)
             .padding(.bottom, 16)
+            .onChange(of: viewModel.isSuccessSignin) { newValue in
+                guard newValue else { return }
+                sceneState.sceneFlow = .main
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 import SwiftUI
 
-public protocol MainFactory {
+public protocol RecommendBookFactory {
     associatedtype SomeView: View
     func makeView() -> SomeView
 }
-

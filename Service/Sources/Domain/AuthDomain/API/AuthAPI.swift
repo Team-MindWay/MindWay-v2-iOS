@@ -16,10 +16,7 @@ extension AuthAPI: MindWayAPI {
     
     public var urlPath: String {
         switch self {
-        case .login:
-            return "/login"
-            
-        case .reissueToken, .logout:
+        case .login, .reissueToken, .logout:
             return ""
         }
     }

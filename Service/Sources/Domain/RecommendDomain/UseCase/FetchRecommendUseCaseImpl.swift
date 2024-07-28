@@ -1,9 +1,9 @@
 import Foundation
 
 public struct FetchRecommendUseCaseImpl: FetchRecommendUseCase {
-    private let recommendRepository: any RecommendRepository
+    private let recommendRepository: any RecommendBookRepository
 
-    public init(recommendRepository: any RecommendRepository) {
+    public init(recommendRepository: any RecommendBookRepository) {
         self.recommendRepository = recommendRepository
     }
     

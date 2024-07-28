@@ -8,9 +8,8 @@ public final class RemoteAuthDataSourceImpl: BaseRemoteDataSource<AuthAPI>, Remo
         super.init(keychain: keychain)
     }
     
-    public func login(code: String) async throws -> UserSignupInfoEntity {
-        try await request(.login(code: code), dto: SigninResponseDTO.self)
-            .toDomain()
+    public func login(code: String) async throws {
+        try await request(.login(code: code))
     }
     
     public func logout() async throws {
