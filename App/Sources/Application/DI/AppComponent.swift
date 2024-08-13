@@ -42,4 +42,16 @@ public extension AppComponent {
     var recommendBookFactory: any RecommendBookFactory {
         RecommendBookComponent(parent: self)
     }
+    
+    var bookOrderFactory: any BookOrderFactory {
+        BookOrderComponent(parent: self)
+    }
+    
+    var mindwayIntroduceFactory: any MindwayIntroduceFactory {
+        MindwayIntroduceComponent(parent: self)
+    }
+    
+    var eventDetailFactory: any EventDetailFactory {
+        EventDetailComponent(parent: self)
+    }
 }

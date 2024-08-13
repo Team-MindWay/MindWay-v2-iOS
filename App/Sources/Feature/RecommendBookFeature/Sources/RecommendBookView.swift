@@ -4,6 +4,14 @@ struct RecommendBookView: View {
     @State var navigateTopBarStatus: Bool = false
     @State var isBookOrder: Bool = false
     
+    private let bookOrderFactory: any BookOrderFactory
+    
+    init(
+        bookOrderFactory: any BookOrderFactory
+    ) {
+        self.bookOrderFactory = bookOrderFactory
+    }
+    
     var body: some View {
         VStack {
             HStack(spacing: 20) {
@@ -52,7 +60,9 @@ struct RecommendBookView: View {
                     .fullScreenCover(
                         isPresented: $isBookOrder
                     ) {
-                        BookOrderView()
+                        bookOrderFactory
+                            .makeView()
+                            .eraseToAnyView()
                     }
             }
             .padding(.horizontal, 24)

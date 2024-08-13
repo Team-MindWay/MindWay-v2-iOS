@@ -4,6 +4,14 @@ struct BookOrderView: View {
     @StateObject var viewModel = BookOrderViewModel()
     @Environment(\.dismiss) var dismiss
 
+    private let recommendBookFactory: any RecommendBookFactory
+    
+    init(
+        recommendBookFactory: any RecommendBookFactory
+    ) {
+        self.recommendBookFactory = recommendBookFactory
+    }
+    
     var body: some View {
         ZStack {
             NavigationView {

@@ -4,7 +4,7 @@ import Service
 @main
 struct MindWayApp: App {
     @State private var showMainView = false
-    @StateObject private var sceneState = SceneState(sceneFlow: .login)
+    @StateObject private var sceneState = SceneState(sceneFlow: .main)
 
     init() {
         registerProviderFactories()
