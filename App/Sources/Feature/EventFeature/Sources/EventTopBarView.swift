@@ -2,8 +2,15 @@ import SwiftUI
 
 struct EventTopBarView: View {
     @State private var topNavigationState = false
-    @StateObject private var viewmodel = EventViewModel()
     @State private var detailState = false
+    
+    private let eventDetailFactory: any EventDetailFactory
+    
+    init(
+        eventDetailFactory: any EventDetailFactory
+    ) {
+        self.eventDetailFactory = eventDetailFactory
+    }
     
     var body: some View {
         NavigationView {
@@ -47,9 +54,9 @@ struct EventTopBarView: View {
                     ScrollView(showsIndicators: false) {
                         ForEach(1...5, id: \.self) { _ in
                             detailView(
-                                eventTitle: viewmodel.eventTitle,
-                                eventDescription: viewmodel.eventDescription,
-                                eventTime: viewmodel.eventTime,
+                                eventTitle: "가을 독서 행사",
+                                eventDescription: "독서의 계절, 가을을 맞아 도서관에서 특별한 이벤트를준비했습니다. 랜덤으로 초성 책 제목이 적혀있는 쪽지를 뽑고, 그에 맞는 책을 찾아오면 푸짐한 선물뽑기를 할 수 있습니다. 점심시간마다 진행할 예정이니 많은 관심 바랍니다.",
+                                eventTime: "2024년 08월 1일 ~ 2024년 09월 1일",
                                 detailState: $detailState
                             )
                         }
@@ -64,7 +71,9 @@ struct EventTopBarView: View {
                 Spacer()
             }
             .fullScreenCover(isPresented: $detailState) {
-                EventDetailView()
+                eventDetailFactory
+                    .makeView()
+                    .eraseToAnyView()
             }
         }
     }
@@ -121,7 +130,6 @@ func detailView(
                 
             )
             .padding(.top, 20)
-            
 }
 
 @ViewBuilder

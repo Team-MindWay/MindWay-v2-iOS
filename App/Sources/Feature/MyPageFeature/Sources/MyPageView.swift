@@ -4,10 +4,14 @@ struct MyPageView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: MyPageViewModel
     
+    private let mindwayIntroduceFactory: any MindwayIntroduceFactory
+    
     init(
-        viewModel: MyPageViewModel
+        viewModel: MyPageViewModel,
+        mindwayIntroduceFactory: any MindwayIntroduceFactory
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.mindwayIntroduceFactory = mindwayIntroduceFactory
     }
     
     var body: some View {
@@ -94,7 +98,9 @@ struct MyPageView: View {
             .toolbar(.hidden, for: .tabBar)
         }
         .fullScreenCover(isPresented: $viewModel.isNavigateMindWayIntroducePage) {
-            MindWayIntroduceView()
+            mindwayIntroduceFactory
+                .makeView()
+                .eraseToAnyView()
         }
     }
     

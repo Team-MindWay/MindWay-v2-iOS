@@ -18,26 +18,30 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
 private class EventDependency7c44a7ba678fce8bee09Provider: EventDependency {
-
-
-    init() {
-
+    var eventDetailFactory: any EventDetailFactory {
+        return appComponent.eventDetailFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
     }
 }
 /// ^->AppComponent->EventComponent
-private func factory59c5e0d7ceb1b46b5a25e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return EventDependency7c44a7ba678fce8bee09Provider()
+private func factory59c5e0d7ceb1b46b5a25f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return EventDependency7c44a7ba678fce8bee09Provider(appComponent: parent1(component) as! AppComponent)
 }
 private class MyPageDependency48d84b530313b3ee40feProvider: MyPageDependency {
-
-
-    init() {
-
+    var mindwayIntroduceFactory: any MindwayIntroduceFactory {
+        return appComponent.mindwayIntroduceFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
     }
 }
 /// ^->AppComponent->MyPageComponent
-private func factory0f6f456ebf157d02dfb3e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return MyPageDependency48d84b530313b3ee40feProvider()
+private func factory0f6f456ebf157d02dfb3f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MyPageDependency48d84b530313b3ee40feProvider(appComponent: parent1(component) as! AppComponent)
 }
 private class MainDependency7c6a5b4738b211b8e155Provider: MainDependency {
 
@@ -49,6 +53,19 @@ private class MainDependency7c6a5b4738b211b8e155Provider: MainDependency {
 /// ^->AppComponent->MainComponent
 private func factoryc9274e46e78e70f29c54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return MainDependency7c6a5b4738b211b8e155Provider()
+}
+private class MindwayIntroduceDependencyc4365ffea3250f49d853Provider: MindwayIntroduceDependency {
+    var myPageFactory: any MyPageFactory {
+        return appComponent.myPageFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
+    }
+}
+/// ^->AppComponent->MindwayIntroduceComponent
+private func factoryf6e8064cd5a3d7f6fe63f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MindwayIntroduceDependencyc4365ffea3250f49d853Provider(appComponent: parent1(component) as! AppComponent)
 }
 private class TabBarDependency6b058f6bef1c605940dfProvider: TabBarDependency {
     var mainFactory: any MainFactory {
@@ -102,31 +119,64 @@ private func factory2882a056d84a613debccf47b58f8f304c97af4d5(_ component: Needle
     return SigninDependencyde06a9d0b22764487733Provider(appComponent: parent1(component) as! AppComponent)
 }
 private class RecommendBookDependency7cd1f82e68cef9855fcdProvider: RecommendBookDependency {
-
-
-    init() {
-
+    var bookOrderFactory: any BookOrderFactory {
+        return appComponent.bookOrderFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
     }
 }
 /// ^->AppComponent->RecommendBookComponent
-private func factory2ba4c0e89046a26569d4e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return RecommendBookDependency7cd1f82e68cef9855fcdProvider()
+private func factory2ba4c0e89046a26569d4f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return RecommendBookDependency7cd1f82e68cef9855fcdProvider(appComponent: parent1(component) as! AppComponent)
+}
+private class BookOrderDependency090458c21d8e6b1613deProvider: BookOrderDependency {
+    var recommendBookFactory: any RecommendBookFactory {
+        return appComponent.recommendBookFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
+    }
+}
+/// ^->AppComponent->BookOrderComponent
+private func factory42c646092382554dd34cf47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return BookOrderDependency090458c21d8e6b1613deProvider(appComponent: parent1(component) as! AppComponent)
+}
+private class EventDetailDependencya414c017c6a5e1011982Provider: EventDetailDependency {
+    var eventFactory: any EventFactory {
+        return appComponent.eventFactory
+    }
+    private let appComponent: AppComponent
+    init(appComponent: AppComponent) {
+        self.appComponent = appComponent
+    }
+}
+/// ^->AppComponent->EventDetailComponent
+private func factory8610907cee92bde36225f47b58f8f304c97af4d5(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return EventDetailDependencya414c017c6a5e1011982Provider(appComponent: parent1(component) as! AppComponent)
 }
 
 #else
 extension EventComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\EventDependency.eventDetailFactory] = "eventDetailFactory-any EventDetailFactory"
     }
 }
 extension MyPageComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\MyPageDependency.mindwayIntroduceFactory] = "mindwayIntroduceFactory-any MindwayIntroduceFactory"
     }
 }
 extension MainComponent: Registration {
     public func registerItems() {
 
+    }
+}
+extension MindwayIntroduceComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\MindwayIntroduceDependency.myPageFactory] = "myPageFactory-any MyPageFactory"
     }
 }
 extension TabBarComponent: Registration {
@@ -150,7 +200,17 @@ extension SigninComponent: Registration {
 }
 extension RecommendBookComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\RecommendBookDependency.bookOrderFactory] = "bookOrderFactory-any BookOrderFactory"
+    }
+}
+extension BookOrderComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\BookOrderDependency.recommendBookFactory] = "recommendBookFactory-any RecommendBookFactory"
+    }
+}
+extension EventDetailComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\EventDetailDependency.eventFactory] = "eventFactory-any EventFactory"
     }
 }
 extension AppComponent: Registration {
@@ -176,6 +236,9 @@ extension AppComponent: Registration {
         localTable["eventFactory-any EventFactory"] = { [unowned self] in self.eventFactory as Any }
         localTable["myPageFactory-any MyPageFactory"] = { [unowned self] in self.myPageFactory as Any }
         localTable["recommendBookFactory-any RecommendBookFactory"] = { [unowned self] in self.recommendBookFactory as Any }
+        localTable["bookOrderFactory-any BookOrderFactory"] = { [unowned self] in self.bookOrderFactory as Any }
+        localTable["mindwayIntroduceFactory-any MindwayIntroduceFactory"] = { [unowned self] in self.mindwayIntroduceFactory as Any }
+        localTable["eventDetailFactory-any EventDetailFactory"] = { [unowned self] in self.eventDetailFactory as Any }
         localTable["remoteNoticeDataSource-any RemoteNoticeDataSource"] = { [unowned self] in self.remoteNoticeDataSource as Any }
         localTable["noticeRepository-any NoticeRepository"] = { [unowned self] in self.noticeRepository as Any }
         localTable["fetchNoticeUseCase-any FetchNoticeUseCase"] = { [unowned self] in self.fetchNoticeUseCase as Any }
@@ -219,13 +282,16 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
-    registerProviderFactory("^->AppComponent->EventComponent", factory59c5e0d7ceb1b46b5a25e3b0c44298fc1c149afb)
-    registerProviderFactory("^->AppComponent->MyPageComponent", factory0f6f456ebf157d02dfb3e3b0c44298fc1c149afb)
+    registerProviderFactory("^->AppComponent->EventComponent", factory59c5e0d7ceb1b46b5a25f47b58f8f304c97af4d5)
+    registerProviderFactory("^->AppComponent->MyPageComponent", factory0f6f456ebf157d02dfb3f47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent->MainComponent", factoryc9274e46e78e70f29c54e3b0c44298fc1c149afb)
+    registerProviderFactory("^->AppComponent->MindwayIntroduceComponent", factoryf6e8064cd5a3d7f6fe63f47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent->TabBarComponent", factory9dac845129838b40415cf47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent->RootComponent", factory264bfc4d4cb6b0629b40f47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent->SigninComponent", factory2882a056d84a613debccf47b58f8f304c97af4d5)
-    registerProviderFactory("^->AppComponent->RecommendBookComponent", factory2ba4c0e89046a26569d4e3b0c44298fc1c149afb)
+    registerProviderFactory("^->AppComponent->RecommendBookComponent", factory2ba4c0e89046a26569d4f47b58f8f304c97af4d5)
+    registerProviderFactory("^->AppComponent->BookOrderComponent", factory42c646092382554dd34cf47b58f8f304c97af4d5)
+    registerProviderFactory("^->AppComponent->EventDetailComponent", factory8610907cee92bde36225f47b58f8f304c97af4d5)
     registerProviderFactory("^->AppComponent", factoryEmptyDependencyProvider)
 }
 #endif

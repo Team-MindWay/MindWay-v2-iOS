@@ -3,6 +3,14 @@ import SwiftUI
 struct MindWayIntroduceView: View {
     @Environment(\.dismiss) var dismiss
     
+    private let myPageFactory: any MyPageFactory
+    
+    init(
+        myPageFactory: any MyPageFactory
+    ) {
+        self.myPageFactory = myPageFactory
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
