@@ -54,4 +54,24 @@ public extension AppComponent {
     var eventDetailFactory: any EventDetailFactory {
         EventDetailComponent(parent: self)
     }
+    
+    var editBookOrderFactory: any EditBookOrderFactory {
+        EditBookOrderComponent(parent: self)
+    }
+    
+    var goalReadingFactory: any GoalReadingFactory {
+        GoalReadingComponent(parent: self)
+    }
+    
+    var bookDetailFactory: any BookDetailFactory {
+        BookDetailComponent(parent: self)
+    }
+    
+    var bookPostFactory: any BookPostFactory {
+        BookPostComponent(parent: self)
+    }
+    
+    var editBookFactory: any EditBookFactory {
+        EditBookComponent(parent: self)
+    }
 }

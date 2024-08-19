@@ -2,11 +2,22 @@ import SwiftUI
 
 struct GoalReadingView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: GoalReadingViewModel
+    @StateObject var viewModel = GoalReadingViewModel()
 
     var week: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var bookCount: [Int] = [0, 2, 2, 4, 1, 0, 0]
 
+    private let bookDetailFactory: any BookDetailFactory
+    private let bookPostFactory: any BookPostFactory
+    
+    init(
+        bookDetailFactory: any BookDetailFactory,
+        bookPostFactory: any BookPostFactory
+    ) {
+        self.bookDetailFactory = bookDetailFactory
+        self.bookPostFactory = bookPostFactory
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,6 +51,9 @@ struct GoalReadingView: View {
 
                     ForEach(0..<2, id: \.self) { _ in
                         readingBookList()
+                            .onTapGesture {
+                                viewModel.isNavigateBookDetailPage = true
+                            }
                     }
 
                     Spacer()
@@ -65,13 +79,15 @@ struct GoalReadingView: View {
         .mindWayBottomSheet(isShowing: $viewModel.isShowingSettingPage) {
             SettingGoalReadingView(viewModel: GoalReadingViewModel())
         }
-        .fullScreenCover(
-            isPresented: Binding(
-            get: { viewModel.isNavigateBookPostPage },
-            set: { _ in }
-            )
-        ) {
-            BookPostView(viewModel: BookPostViewModel())
+        .fullScreenCover(isPresented: $viewModel.isNavigateBookPostPage) {
+            bookPostFactory
+                .makeView()
+                .eraseToAnyView()
+        }
+        .fullScreenCover(isPresented: $viewModel.isNavigateBookDetailPage) {
+            bookDetailFactory
+                .makeView()
+                .eraseToAnyView()
         }
     }
 

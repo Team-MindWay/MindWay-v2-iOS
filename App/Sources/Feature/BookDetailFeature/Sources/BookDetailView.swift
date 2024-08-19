@@ -1,8 +1,16 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    @StateObject var viewModel: BookDetailViewModel
+    @StateObject var viewModel = BookDetailViewModel()
     @Environment(\.dismiss) var dismiss
+    
+    private let editBookFactory: any EditBookFactory
+    
+    init(
+        editBookFactory: any EditBookFactory
+    ) {
+        self.editBookFactory = editBookFactory
+    }
     
     var body: some View {
         ZStack {
@@ -76,13 +84,10 @@ struct BookDetailView: View {
                 }
                 .padding(.horizontal, 24)
             }
-            .fullScreenCover(
-                isPresented: Binding(
-                    get: { viewModel.isNavigateBookEditPage },
-                    set: { _ in}
-                )
-            ) {
-                EditBookView(viewModel: EditBookViewModel())
+            .fullScreenCover(isPresented: $viewModel.isNavigateBookEditPage) {
+                editBookFactory
+                    .makeView()
+                    .eraseToAnyView()
             }
         }
     }
