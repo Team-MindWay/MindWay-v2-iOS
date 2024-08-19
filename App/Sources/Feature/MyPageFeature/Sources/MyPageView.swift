@@ -5,13 +5,16 @@ struct MyPageView: View {
     @StateObject var viewModel: MyPageViewModel
     
     private let mindwayIntroduceFactory: any MindwayIntroduceFactory
+    private let editBookOrderFactory: any EditBookOrderFactory
     
     init(
         viewModel: MyPageViewModel,
-        mindwayIntroduceFactory: any MindwayIntroduceFactory
+        mindwayIntroduceFactory: any MindwayIntroduceFactory,
+        editBookOrderFactory: any EditBookOrderFactory
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.mindwayIntroduceFactory = mindwayIntroduceFactory
+        self.editBookOrderFactory = editBookOrderFactory
     }
     
     var body: some View {
@@ -102,6 +105,11 @@ struct MyPageView: View {
                 .makeView()
                 .eraseToAnyView()
         }
+        .fullScreenCover(isPresented: $viewModel.isShowingUpdateBook) {
+            editBookOrderFactory
+                .makeView()
+                .eraseToAnyView()
+        }
     }
     
     @ViewBuilder
@@ -120,6 +128,9 @@ struct MyPageView: View {
                 Spacer()
                 
                 MindWayAsset.Icons.edit.swiftUIImage
+                    .onTapGesture {
+                        viewModel.isShowingUpdateBook = true
+                    }
                 
                 MindWayAsset.Icons.trash.swiftUIImage
                     .onTapGesture {

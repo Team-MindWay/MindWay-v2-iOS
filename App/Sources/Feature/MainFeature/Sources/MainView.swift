@@ -3,6 +3,15 @@ import SwiftUI
 struct MainView: View {
     var week: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var bookCount: [Int] = [0, 2, 2, 4, 1, 0, 0]
+    @State var isShowingGoalReading: Bool = false
+    
+    private let goalReadingFactory: any GoalReadingFactory
+    
+    init(
+        goalReadingFactory: any GoalReadingFactory
+    ) {
+        self.goalReadingFactory = goalReadingFactory
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -31,8 +40,11 @@ struct MainView: View {
                         
                         Spacer()
                         
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.mindway(.gray(.g4)))
+                        MindWayAsset.Icons.chevronRightGray.swiftUIImage
+                            .onTapGesture {
+                                isShowingGoalReading = true
+                            }
+
                     }
                     .padding(.horizontal, 48)
                     .padding(.top, 6)
@@ -68,6 +80,11 @@ struct MainView: View {
             }
             
             Spacer()
+        }
+        .fullScreenCover(isPresented: $isShowingGoalReading) {
+            goalReadingFactory
+                .makeView()
+                .eraseToAnyView()
         }
     }
     

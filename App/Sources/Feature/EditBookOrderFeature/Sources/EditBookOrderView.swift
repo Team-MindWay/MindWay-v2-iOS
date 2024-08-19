@@ -3,7 +3,7 @@ import SwiftUI
 struct EditBookOrderView: View {
     @StateObject var viewModel: EditBookOrderViewModel
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         ZStack {
             NavigationView {
@@ -35,17 +35,20 @@ struct EditBookOrderView: View {
                     MindWayButton(
                         text: "수정하기",
                         buttonStyle: .default
-                    ) { }
+                    ) {
+                        dismiss()
+                        #warning("수정 API 연결 시 서버로 보내는 기능 추가하기")
+                    }
                     .padding(.bottom, 20)
                 }
-                .padding(.horizontal, 24)
-            }
-            .mindWayBackButton(dismiss: dismiss)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("도서 수정")
-                        .mindWaySemiboldFont(.m2)
+                .mindWayBackButton(dismiss: dismiss)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("도서 수정")
+                            .mindWaySemiboldFont(.m2)
+                    }
                 }
+                .padding(.horizontal, 24)
             }
         }
     }
